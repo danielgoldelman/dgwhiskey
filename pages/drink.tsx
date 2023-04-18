@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+
 import { ReviewedDrink, Look, Taste, Linger } from "./static/interfaces";
 import GimmeDrinks from "./static/hold.json";
 import { defaultDrink } from "./allDrinks/statics";

@@ -8,7 +8,9 @@ import TypesFilter from "./filters/types";
 import Abv from "./filters/abv";
 import Price from "./filters/price";
 import SearchBarFilters from "./filters/searchBarFilters";
-import { NameAbvCostLine, origins, types } from "./statics";
+
+import { origins, types } from "./statics";
+import NameAbvCostLine from "./nameAbvCostLine";
 
 export default function AllDrinks() {
   const [allDrinks, setAllDrinks] = useState<Drink[]>([]);
