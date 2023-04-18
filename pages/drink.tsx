@@ -11,8 +11,6 @@ export default function SingleDrink() {
   const [taste, setTaste] = useState<Taste>();
   const [linger, setLinger] = useState<Linger>();
 
-  const reqID = useSearchParams().get("id");
-
   const selectedDrink = async (id: string) => {
     var drink = defaultDrink;
     for (var i = 0; i < GimmeDrinks.length; i++) {
@@ -27,18 +25,11 @@ export default function SingleDrink() {
     setLinger(drink.fullTasting.linger);
   };
 
+  const reqIDnull = useSearchParams().get("id");
+
   useEffect(() => {
-    if (reqID === null) {
-      const dNum = localStorage.getItem("drinkNumber");
-      if (dNum) {
-        selectedDrink(dNum);
-      } else {
-      }
-    } else if (typeof reqID === "string") {
-      selectedDrink(reqID);
-      localStorage.setItem("drinkNumber", reqID);
-    }
-  }, []);
+    reqIDnull ? selectedDrink(reqIDnull) : selectedDrink("");
+  }, [reqIDnull]);
 
   return (
     <>

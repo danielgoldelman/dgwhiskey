@@ -2,13 +2,12 @@ import { useState, useEffect } from "react";
 import { Drink } from "../static/interfaces";
 import GimmeDrinks from "../static/hold.json";
 import ShowAllDrinks from "./showAllDrinks";
-import {
-  OriginFilter,
-  TypesFilter,
-  Price,
-  Abv,
-  SearchBarFilters,
-} from "./filters";
+
+import OriginFilter from "./filters/origin";
+import TypesFilter from "./filters/types";
+import Abv from "./filters/abv";
+import Price from "./filters/price";
+import SearchBarFilters from "./filters/searchBarFilters";
 import { NameAbvCostLine, origins, types } from "./statics";
 
 export default function AllDrinks() {
