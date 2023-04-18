@@ -1,4 +1,4 @@
-import { ReviewedDrink } from "../static/interfaces";
+import { ReviewedDrink } from "../../static/interfaces";
 
 export const origins = {
   american: "American",

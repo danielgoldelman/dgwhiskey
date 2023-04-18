@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { Drink } from "../static/interfaces";
-import GimmeDrinks from "../static/hold.json";
+import { Drink } from "../../static/interfaces";
+import GimmeDrinks from "../../static/hold.json";
 import ShowAllDrinks from "./showAllDrinks";
 
 import OriginFilter from "./filters/origin";

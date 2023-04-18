@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Drink } from "../static/interfaces";
+import { Drink } from "../../static/interfaces";
 import { FC } from "react";
 
 interface MultDrinks {

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import AllDrinks from './allDrinks/allDrinks'
+import AllDrinks from '../components/allDrinks/allDrinks'
 
 export default function Home() {
 
