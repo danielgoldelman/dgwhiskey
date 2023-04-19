@@ -1,5 +1,9 @@
 import { FC } from "react";
 
+/**
+ * NameAbvCostLine: Component for top of the list of drinks explaining the three columns
+ * @returns tsx component
+ */
 const NameAbvCostLine: FC = () => {
   return (
     <div className="flex rounded-2xl text-2xl bg-[#0d1117] p-3" key={"top"}>

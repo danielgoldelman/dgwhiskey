@@ -1,5 +1,8 @@
-import { ReviewedDrink } from "../../static/interfaces";
+import { ReviewedDrink } from "../../public/static/interfaces";
 
+/**
+ * origins: map of strings for origins
+ */
 export const origins = {
   american: "American",
   scottish: "Scottish",
@@ -12,6 +15,9 @@ export const origins = {
   indian: "Indian",
 };
 
+/**
+ * types: map of strings for types
+ */
 export const types = {
   bourbon: "Bourbon",
   rye: "Rye",
@@ -21,6 +27,9 @@ export const types = {
   blended: "Blended",
 };
 
+/**
+ * defaultDrink: a made-up drink of type ReviewedDrink for testing
+ */
 export const defaultDrink = {
     id: "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
     name: "Test Name Drink 1",

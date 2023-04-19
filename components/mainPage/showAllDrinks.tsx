@@ -1,11 +1,16 @@
 import Link from "next/link";
-import { Drink } from "../../static/interfaces";
+import { Drink } from "../../public/static/interfaces";
 import { FC } from "react";
 
 interface MultDrinks {
   showDrinks: Drink[];
 }
 
+/**
+ * ShowAllDrinks: showing all drinks that fit with the current filters
+ * @param showDrinks 
+ * @returns tsx component
+ */
 export const ShowAllDrinks: FC<MultDrinks> = ({ showDrinks }: MultDrinks) => {
   return (
     <>
