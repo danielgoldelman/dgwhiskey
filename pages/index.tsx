@@ -11,13 +11,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className="sticky z-50 top-0 inset-x-0 flex flex-wrap w-full border-b border-gray-200 shadow-lg py-5 bg-[#0d1117]">
-        <div className="relative left-[3%] text-3xl">{"DG \xa0 Whisk(e)y"}</div>
-      </header>  
-      <main className='h-full min-h-screen bg-gradient-to-b from-black to-orange-400 bg-auto justify-center flex'>
-        <AllDrinks />
-        <div className="pt-5"></div>
-      </main>
+      <div className='text-white'>
+        <header className="sticky z-50 top-0 inset-x-0 flex flex-wrap w-full border-b border-gray-200 shadow-lg py-5 bg-[#0d1117]">
+          <div className="relative left-[3%] text-3xl">{"DG \xa0 Whisk(e)y"}</div>
+        </header>  
+        <main className='h-full min-h-screen bg-gradient-to-b from-black to-orange-400 bg-auto justify-center flex'>
+          <AllDrinks />
+          <div className="pt-5"></div>
+        </main>
+      </div>
     </>
   )
 }
