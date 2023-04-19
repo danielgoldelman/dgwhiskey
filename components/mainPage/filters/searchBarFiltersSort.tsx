@@ -2,7 +2,7 @@ import { FC, SetStateAction } from "react";
 
 interface SearchProps {
   searchInput: string;
-  handleSearchChange(e: any): void;
+  setSearchInput(value: SetStateAction<string>): void;
   showOrigins: boolean;
   setShowOrigins(value: SetStateAction<boolean>): void;
   showTypes: boolean;
@@ -33,7 +33,7 @@ interface SearchProps {
  */
 const SearchBarFiltersSort: FC<SearchProps> = ({
   searchInput,
-  handleSearchChange,
+  setSearchInput,
   showOrigins,
   setShowOrigins,
   showTypes,
@@ -45,11 +45,16 @@ const SearchBarFiltersSort: FC<SearchProps> = ({
   sortBy,
   setSortBy,
 }: SearchProps) => {
+  // chaning input for search bar
+  function handleSearchChange(e: any) {
+    e.preventDefault();
+    setSearchInput(e.target.value);
+  }
 
   function onChangeSortBy(e: any) {
     const tVal = e.target.value;
     setSortBy(tVal);
-  }  
+  }
 
   return (
     <div className="grid grid-cols-6 gap-5">
@@ -90,7 +95,7 @@ const SearchBarFiltersSort: FC<SearchProps> = ({
       </div>
       <select className="select w-full max-w-xs" onChange={onChangeSortBy}>
         <option disabled selected>
-          Sort By: 
+          Sort By:
         </option>
         <option value={"name"}>Name</option>
         <option value={"pricelh"}>Price (low -&gt; high)</option>

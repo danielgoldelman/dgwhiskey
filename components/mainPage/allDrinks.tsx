@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-import { Drink } from "../../public/static/interfaces";
-import GimmeDrinks from "../../public/static/hold.json";
+import { Drink } from "@/public/static/interfaces";
+import GimmeDrinks from "@/public/static/hold.json";
 
 import SearchBarFiltersSort from "./filters/searchBarFiltersSort";
 import OriginFilter from "./filters/origin";
@@ -10,10 +10,9 @@ import Abv from "./filters/abv";
 import Price from "./filters/price";
 
 import NameAbvCostLine from "./nameAbvCostLine";
-
-import { origins, types } from "./statics";
-
 import ShowAllDrinks from "./showAllDrinks";
+
+import { origins, types } from "../statics";
 import sortByFun from "./sortByFun";
 
 export default function AllDrinks() {
@@ -40,7 +39,7 @@ export default function AllDrinks() {
   const [indianB, setIndianB] = useState<boolean>(true);
 
   // string for sort by
-  const [sortBy, setSortBy] = useState<string>("")
+  const [sortBy, setSortBy] = useState<string>("");
 
   // booleans for types
   const [bourbonB, setBourbonB] = useState<boolean>(true);
@@ -72,31 +71,6 @@ export default function AllDrinks() {
   useEffect(() => {
     getDrinks();
   }, []);
-
-  // changing filter input for abv, price
-  const handleChangeFilterInput = (e: any) => {
-    const val = e.target.value;
-    switch (e.target.name) {
-      case "minP":
-        setMinP(val);
-        break;
-      case "maxP":
-        setMaxP(val);
-        break;
-      case "minA":
-        setMinA(val);
-        break;
-      case "maxA":
-        setMaxA(val);
-        break;
-    }
-  };
-
-  // chaning input for search bar
-  const handleSearchChange = (e: any) => {
-    e.preventDefault();
-    setSearchInput(e.target.value);
-  };
 
   // var to keep track of all drinks to be shown based on filters
   var showDrinks = sortByFun(allDrinks, sortBy);
@@ -206,36 +180,12 @@ export default function AllDrinks() {
     });
   }
 
-  /**
-   * originButtons: takes in whether or not the button is on, then returns the related css
-   * @param b boolean of whether or not the button is on
-   * @returns string of the css relative to the button having been clicked
-   */
-  const originButtons = (b: boolean): string => {
-    if (!b) {
-      return "p-2 border-2 rounded-lg border-black bg-gray-800 col-span-1 cursor-pointer text-center";
-    }
-    return "p-2 border-2 rounded-lg border-black bg-green-500 col-span-1 cursor-pointer text-center";
-  };
-
-  /**
-   * typeButtons: takes in whether or not the button is on, then returns the related css
-   * @param b boolean of whether or not the button is on
-   * @returns string of the css relative to the button having been clicked
-   */
-  const typeButtons = (b: boolean): string => {
-    if (!b) {
-      return "p-2 border-2 rounded-lg border-black bg-gray-800 col-span-1 cursor-pointer text-center";
-    }
-    return "p-2 border-2 rounded-lg border-black bg-[#3c46fb] col-span-1 cursor-pointer text-center";
-  };
-
   return (
     <div className="w-3/4">
       <div className="pt-5"></div>
       <SearchBarFiltersSort
         searchInput={searchInput}
-        handleSearchChange={handleSearchChange}
+        setSearchInput={setSearchInput}
         showOrigins={showOrigins}
         setShowOrigins={setShowOrigins}
         showTypes={showTypes}
@@ -250,7 +200,6 @@ export default function AllDrinks() {
       {showOrigins ? (
         <>
           <OriginFilter
-            bS={originButtons}
             b1={americanB}
             b2={scottishB}
             b3={irishB}
@@ -265,7 +214,6 @@ export default function AllDrinks() {
             f4={setCanadianB}
           />
           <OriginFilter
-            bS={originButtons}
             b1={japaneseB}
             b2={englishB}
             b3={welshB}
@@ -286,7 +234,6 @@ export default function AllDrinks() {
       {showTypes ? (
         <>
           <TypesFilter
-            bS={typeButtons}
             b1={bourbonB}
             b2={ryeB}
             b3={tennesseeB}
@@ -298,7 +245,6 @@ export default function AllDrinks() {
             f3={setTennesseeB}
           />
           <TypesFilter
-            bS={typeButtons}
             b1={singlePotB}
             b2={singleMaltB}
             b3={blendedB}
@@ -315,14 +261,14 @@ export default function AllDrinks() {
       )}
       {showPrice ? (
         <>
-          <Price handleChangeFilterInput={handleChangeFilterInput} />
+          <Price setMinP={setMinP} setMaxP={setMaxP} />
         </>
       ) : (
         <></>
       )}
       {showAbv ? (
         <>
-          <Abv handleChangeFilterInput={handleChangeFilterInput} />
+          <Abv setMinA={setMinA} setMaxA={setMaxA} />
         </>
       ) : (
         <></>

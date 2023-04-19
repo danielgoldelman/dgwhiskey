@@ -1,7 +1,8 @@
-import { FC } from "react";
+import { FC, SetStateAction } from "react";
 
 interface AbvProps {
-  handleChangeFilterInput(e: any): void;
+  setMinA(value: SetStateAction<number>): void;
+  setMaxA(value: SetStateAction<number>): void;
 }
 
 /**
@@ -9,7 +10,21 @@ interface AbvProps {
  * @param handleChangeFilterInput handler for adjusting filter input
  * @returns tsx component
  */
-const Abv: FC<AbvProps> = ({ handleChangeFilterInput }: AbvProps) => {
+const Abv: FC<AbvProps> = ({ setMinA, setMaxA }: AbvProps) => {
+
+  // changing filter input for price
+  const handleChangeFilterInput = (e: any) => {
+    const val = e.target.value;
+    switch (e.target.name) {
+      case "minP":
+        setMinA(val);
+        break;
+      case "maxP":
+        setMaxA(val);
+        break;
+    }
+  };
+
   return (
     <div className="grid grid-cols-7 gap-2 pt-5">
       <div className="col-start-2 col-span-2">

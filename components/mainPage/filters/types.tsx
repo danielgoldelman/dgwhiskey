@@ -1,7 +1,6 @@
 import { FC, SetStateAction } from "react";
 
 interface TypesProps {
-  bS(e: any): void;
   b1: boolean;
   b2: boolean;
   b3: boolean;
@@ -15,7 +14,6 @@ interface TypesProps {
 
 /**
  * TypesFilter: Filter for type on the main page
- * @param bS function that defines strings for button css based on their associated value
  * @param b1 boolean for the first type (useState 1/2)
  * @param b2 boolean for the second type (useState 1/2)
  * @param b3 boolean for the third type (useState 1/2)
@@ -28,7 +26,6 @@ interface TypesProps {
  * @returns tsx component
  */
 const TypesFilter: FC<TypesProps> = ({
-  bS,
   b1,
   b2,
   b3,
@@ -39,24 +36,37 @@ const TypesFilter: FC<TypesProps> = ({
   f2,
   f3,
 }: TypesProps) => {
+
+  /**
+   * typeButtons: takes in whether or not the button is on, then returns the related css
+   * @param b boolean of whether or not the button is on
+   * @returns string of the css relative to the button having been clicked
+   */
+  const typeButtons = (b: boolean): string => {
+    if (!b) {
+      return "p-2 border-2 rounded-lg border-black bg-gray-800 col-span-1 cursor-pointer text-center";
+    }
+    return "p-2 border-2 rounded-lg border-black bg-[#3c46fb] col-span-1 cursor-pointer text-center";
+  };
+
   return (
     <div className="grid grid-cols-5 gap-2 pt-5">
       <input
         type="button"
         value={s1}
-        className={bS(b1) + " col-start-2"}
+        className={typeButtons(b1) + " col-start-2"}
         onClick={() => f1(!b1)}
       />
       <input
         type="button"
         value={s2}
-        className={bS(b2) + ""}
+        className={typeButtons(b2) + ""}
         onClick={() => f2(!b2)}
       />
       <input
         type="button"
         value={s3}
-        className={bS(b3) + ""}
+        className={typeButtons(b3) + ""}
         onClick={() => f3(!b3)}
       />
     </div>
