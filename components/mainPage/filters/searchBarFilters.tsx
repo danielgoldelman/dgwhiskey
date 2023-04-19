@@ -50,17 +50,17 @@ const SearchBarFilters: FC<SearchProps> = ({
             placeholder="Search By Name"
             onChange={handleSearchChange}
             value={searchInput}
-            className="hover:ring-4 hover:ring-slate-500 focus:ring-4 focus:ring-blue-500 rounded-md p-3 pl-7 w-full"
+            className="hover:ring-4 hover:ring-slate-500 focus:ring-4 focus:ring-blue-500 rounded-md p-3 pl-7 w-full bg-gray-800"
           />
         </form>
       </div>
       <div className="dropdown dropdown-end">
-        <label tabIndex={0} className="btn w-full">
+        <label tabIndex={0} className="btn w-full bg-gray-800">
           Filters
         </label>
         <ul
           tabIndex={0}
-          className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-2"
+          className="dropdown-content menu p-2 shadow bg-gray-800 rounded-box w-52 mt-2"
         >
           <li>
             <button onClick={() => setShowOrigins(!showOrigins)}>Origin</button>
