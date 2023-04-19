@@ -1,26 +1,34 @@
 import { useState, useEffect } from "react";
-import { Drink } from "../../static/interfaces";
-import GimmeDrinks from "../../static/hold.json";
-import ShowAllDrinks from "./showAllDrinks";
 
+import { Drink } from "../../public/static/interfaces";
+import GimmeDrinks from "../../public/static/hold.json";
+
+import SearchBarFilters from "./filters/searchBarFilters";
 import OriginFilter from "./filters/origin";
 import TypesFilter from "./filters/types";
 import Abv from "./filters/abv";
 import Price from "./filters/price";
-import SearchBarFilters from "./filters/searchBarFilters";
 
-import { origins, types } from "./statics";
 import NameAbvCostLine from "./nameAbvCostLine";
 
+import { origins, types } from "./statics";
+
+import ShowAllDrinks from "./showAllDrinks";
+
 export default function AllDrinks() {
+  // All drinks in database
   const [allDrinks, setAllDrinks] = useState<Drink[]>([]);
+
+  // Input for searching by name
   const [searchInput, setSearchInput] = useState<string>("");
 
+  // booleans for showing/not showing the different filters
   const [showOrigins, setShowOrigins] = useState<boolean>(false);
   const [showTypes, setShowTypes] = useState<boolean>(false);
   const [showPrice, setShowPrice] = useState<boolean>(false);
   const [showAbv, setShowAbv] = useState<boolean>(false);
 
+  // booleans for origins
   const [americanB, setAmericanB] = useState<boolean>(true);
   const [scottishB, setScottishB] = useState<boolean>(true);
   const [irishB, setIrishB] = useState<boolean>(true);
@@ -30,6 +38,7 @@ export default function AllDrinks() {
   const [welshB, setWelshB] = useState<boolean>(true);
   const [indianB, setIndianB] = useState<boolean>(true);
 
+  // booleans for types
   const [bourbonB, setBourbonB] = useState<boolean>(true);
   const [ryeB, setRyeB] = useState<boolean>(true);
   const [tennesseeB, setTennesseeB] = useState<boolean>(true);
@@ -37,11 +46,15 @@ export default function AllDrinks() {
   const [singleMaltB, setSingleMaltB] = useState<boolean>(true);
   const [blendedB, setBlendedB] = useState<boolean>(true);
 
+  // numbers for min/max price, min/max abv
   const [minP, setMinP] = useState<number>(0);
   const [maxP, setMaxP] = useState<number>(1000);
   const [minA, setMinA] = useState<number>(0);
   const [maxA, setMaxA] = useState<number>(100);
 
+  /**
+   * getDrinks: get all drinks from json file and format as type Drink
+   */
   const getDrinks = () => {
     var retDrinks = [];
     for (var i = 0; i < GimmeDrinks.length; i++) {
@@ -51,10 +64,12 @@ export default function AllDrinks() {
     setAllDrinks(retDrinks);
   };
 
+  // useEffect: on page load, get all drinks
   useEffect(() => {
     getDrinks();
   }, []);
 
+  // changing filter input for abv, price
   const handleChangeFilterInput = (e: any) => {
     const val = e.target.value;
     switch (e.target.name) {
@@ -73,18 +88,23 @@ export default function AllDrinks() {
     }
   };
 
-  const handleChange = (e: any) => {
+  // chaning input for search bar
+  const handleSearchChange = (e: any) => {
     e.preventDefault();
     setSearchInput(e.target.value);
   };
 
+  // var to keep track of all drinks to be shown based on filters
   var showDrinks = allDrinks;
+
+  // verify that all drinks shown to user are valid based on search bar input (by name only)
   if (searchInput.length > 0 && allDrinks) {
     showDrinks = allDrinks.filter((d) => {
       return d.drink.name.toLowerCase().includes(searchInput.toLowerCase());
     });
   }
 
+  // verify that all drinks shown to user are valid based on origin buttons choices
   if (!americanB) {
     showDrinks = showDrinks.filter((d) => {
       return d.drink.origin !== origins.american;
@@ -125,6 +145,8 @@ export default function AllDrinks() {
       return d.drink.origin !== origins.indian;
     });
   }
+
+  // verify that all drinks shown to user are valid based on types buttons choices
   if (!bourbonB) {
     showDrinks = showDrinks.filter((d) => {
       return d.drink.type !== types.bourbon;
@@ -155,6 +177,8 @@ export default function AllDrinks() {
       return d.drink.type !== types.blended;
     });
   }
+
+  // verify that all drinks shown to user are valid based on price input choices
   if (minP) {
     showDrinks = showDrinks.filter((d) => {
       return d.drink.price >= minP;
@@ -165,6 +189,8 @@ export default function AllDrinks() {
       return d.drink.price < maxP;
     });
   }
+
+  // verify that all drinks shown to user are valid based on abv input choices
   if (minA) {
     showDrinks = showDrinks.filter((d) => {
       return d.drink.price >= minA;
@@ -176,6 +202,11 @@ export default function AllDrinks() {
     });
   }
 
+  /**
+   * originButtons: takes in whether or not the button is on, then returns the related css
+   * @param b boolean of whether or not the button is on
+   * @returns string of the css relative to the button having been clicked
+   */
   const originButtons = (b: boolean): string => {
     if (!b) {
       return "p-2 border-2 rounded-lg border-black bg-gray-800 col-span-1 cursor-pointer text-center";
@@ -183,6 +214,11 @@ export default function AllDrinks() {
     return "p-2 border-2 rounded-lg border-black bg-green-500 col-span-1 cursor-pointer text-center";
   };
 
+  /**
+   * typeButtons: takes in whether or not the button is on, then returns the related css
+   * @param b boolean of whether or not the button is on
+   * @returns string of the css relative to the button having been clicked
+   */
   const typeButtons = (b: boolean): string => {
     if (!b) {
       return "p-2 border-2 rounded-lg border-black bg-gray-800 col-span-1 cursor-pointer text-center";
@@ -195,7 +231,7 @@ export default function AllDrinks() {
       <div className="pt-5"></div>
       <SearchBarFilters
         searchInput={searchInput}
-        handleChange={handleChange}
+        handleSearchChange={handleSearchChange}
         showOrigins={showOrigins}
         setShowOrigins={setShowOrigins}
         showTypes={showTypes}

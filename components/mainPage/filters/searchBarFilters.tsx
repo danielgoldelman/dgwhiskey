@@ -2,7 +2,7 @@ import { FC, SetStateAction } from "react";
 
 interface SearchProps {
   searchInput: string;
-  handleChange(e: any): void;
+  handleSearchChange(e: any): void;
   showOrigins: boolean;
   setShowOrigins(value: SetStateAction<boolean>): void;
   showTypes: boolean;
@@ -13,9 +13,23 @@ interface SearchProps {
   setShowAbv(value: SetStateAction<boolean>): void;
 }
 
+/**
+ * SearchBarFilters: Search bar and filters button / dropdown line for the main page
+ * @param searchInput search bar input
+ * @param handleSearchChange handle changing search bar input
+ * @param showOrigins show origins boolean (useState 1/2)
+ * @param setShowOrigins set show origins boolean (useState 2/2)
+ * @param showTypes show types boolean (useState 1/2)
+ * @param setShowTypes set show types boolean (useState 2/2)
+ * @param setPrice show price boolean (useState 1/2)
+ * @param setShowPrice set show types boolean (useState 2/2)
+ * @param showAbv show abv boolean (useState 1/2)
+ * @param setShowAbv set show abv boolean (useState 2/2)
+ * @returns tsx component
+ */
 const SearchBarFilters: FC<SearchProps> = ({
   searchInput,
-  handleChange,
+  handleSearchChange,
   showOrigins,
   setShowOrigins,
   showTypes,
@@ -34,7 +48,7 @@ const SearchBarFilters: FC<SearchProps> = ({
             id="default-search"
             type="text"
             placeholder="Search By Name"
-            onChange={handleChange}
+            onChange={handleSearchChange}
             value={searchInput}
             className="hover:ring-4 hover:ring-slate-500 focus:ring-4 focus:ring-blue-500 rounded-md p-3 pl-7 w-full"
           />
