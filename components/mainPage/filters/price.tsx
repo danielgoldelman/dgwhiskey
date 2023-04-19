@@ -1,15 +1,29 @@
-import { FC } from "react";
+import { FC, SetStateAction } from "react";
 
 interface PriceProps {
-  handleChangeFilterInput(e: any): void;
+  setMinP(value: SetStateAction<number>): void;
+  setMaxP(value: SetStateAction<number>): void;
 }
 
 /**
- * Price: price filter for the main page
+ * Abv: abv filter for the main page
  * @param handleChangeFilterInput handler for adjusting filter input
  * @returns tsx component
  */
-const Price: FC<PriceProps> = ({ handleChangeFilterInput }: PriceProps) => {
+const Price: FC<PriceProps> = ({ setMinP, setMaxP }: PriceProps) => {
+
+  // changing filter input for price
+  const handleChangeFilterInput = (e: any) => {
+    const val = e.target.value;
+    switch (e.target.name) {
+      case "minP":
+        setMinP(val);
+        break;
+      case "maxP":
+        setMaxP(val);
+        break;
+    }
+  };
   return (
     <div className="grid grid-cols-7 gap-2 pt-5">
       <div className="col-start-2 col-span-2">

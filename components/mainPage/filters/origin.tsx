@@ -1,7 +1,6 @@
 import { FC, SetStateAction } from "react";
 
 interface OriginProps {
-  bS(e: any): void;
   b1: boolean;
   b2: boolean;
   b3: boolean;
@@ -34,7 +33,6 @@ interface OriginProps {
  * @returns tsx component
  */
 const OriginFilter: FC<OriginProps> = ({
-  bS,
   b1,
   b2,
   b3,
@@ -48,30 +46,43 @@ const OriginFilter: FC<OriginProps> = ({
   f3,
   f4,
 }: OriginProps) => {
+
+  /**
+   * originButtons: takes in whether or not the button is on, then returns the related css
+   * @param b boolean of whether or not the button is on
+   * @returns string of the css relative to the button having been clicked
+   */
+  const originButtons = (b: boolean): string => {
+    if (!b) {
+      return "p-2 border-2 rounded-lg border-black bg-gray-800 col-span-1 cursor-pointer text-center";
+    }
+    return "p-2 border-2 rounded-lg border-black bg-green-500 col-span-1 cursor-pointer text-center";
+  };
+
   return (
     <div className="grid grid-cols-6 gap-2 pt-5">
       <input
         type="button"
         value={s1}
-        className={bS(b1) + " col-start-2"}
+        className={originButtons(b1) + " col-start-2"}
         onClick={() => f1(!b1)}
       />
       <input
         type="button"
         value={s2}
-        className={bS(b2) + ""}
+        className={originButtons(b2) + ""}
         onClick={() => f2(!b2)}
       />
       <input
         type="button"
         value={s3}
-        className={bS(b3) + ""}
+        className={originButtons(b3) + ""}
         onClick={() => f3(!b3)}
       />
       <input
         type="button"
         value={s4}
-        className={bS(b4) + ""}
+        className={originButtons(b4) + ""}
         onClick={() => f4(!b4)}
       />
     </div>

@@ -1,4 +1,4 @@
-import { ReviewedDrink } from "../../public/static/interfaces";
+import { ReviewedDrink } from "../public/static/interfaces";
 
 /**
  * origins: map of strings for origins

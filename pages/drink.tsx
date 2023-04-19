@@ -9,7 +9,7 @@ import {
   Linger,
 } from "../public/static/interfaces";
 import GimmeDrinks from "../public/static/hold.json";
-import { defaultDrink } from "../components/mainPage/statics";
+import { defaultDrink } from "../components/statics";
 
 export default function SingleDrink() {
   const [singleDrink, setSingleDrink] = useState<ReviewedDrink>();
