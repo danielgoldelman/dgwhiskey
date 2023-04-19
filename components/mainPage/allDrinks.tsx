@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Drink } from "../../public/static/interfaces";
 import GimmeDrinks from "../../public/static/hold.json";
 
-import SearchBarFilters from "./filters/searchBarFilters";
+import SearchBarFiltersSort from "./filters/searchBarFiltersSort";
 import OriginFilter from "./filters/origin";
 import TypesFilter from "./filters/types";
 import Abv from "./filters/abv";
@@ -14,6 +14,7 @@ import NameAbvCostLine from "./nameAbvCostLine";
 import { origins, types } from "./statics";
 
 import ShowAllDrinks from "./showAllDrinks";
+import sortByFun from "./sortByFun";
 
 export default function AllDrinks() {
   // All drinks in database
@@ -37,6 +38,9 @@ export default function AllDrinks() {
   const [englishB, setEnglishB] = useState<boolean>(true);
   const [welshB, setWelshB] = useState<boolean>(true);
   const [indianB, setIndianB] = useState<boolean>(true);
+
+  // string for sort by
+  const [sortBy, setSortBy] = useState<string>("")
 
   // booleans for types
   const [bourbonB, setBourbonB] = useState<boolean>(true);
@@ -95,7 +99,7 @@ export default function AllDrinks() {
   };
 
   // var to keep track of all drinks to be shown based on filters
-  var showDrinks = allDrinks;
+  var showDrinks = sortByFun(allDrinks, sortBy);
 
   // verify that all drinks shown to user are valid based on search bar input (by name only)
   if (searchInput.length > 0 && allDrinks) {
@@ -229,7 +233,7 @@ export default function AllDrinks() {
   return (
     <div className="w-3/4">
       <div className="pt-5"></div>
-      <SearchBarFilters
+      <SearchBarFiltersSort
         searchInput={searchInput}
         handleSearchChange={handleSearchChange}
         showOrigins={showOrigins}
@@ -240,6 +244,8 @@ export default function AllDrinks() {
         setShowPrice={setShowPrice}
         showAbv={showAbv}
         setShowAbv={setShowAbv}
+        sortBy={sortBy}
+        setSortBy={setSortBy}
       />
       {showOrigins ? (
         <>
