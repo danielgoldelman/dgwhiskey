@@ -11,10 +11,12 @@ interface SearchProps {
   setShowPrice(value: SetStateAction<boolean>): void;
   showAbv: boolean;
   setShowAbv(value: SetStateAction<boolean>): void;
+  sortBy: string;
+  setSortBy(value: SetStateAction<string>): void;
 }
 
 /**
- * SearchBarFilters: Search bar and filters button / dropdown line for the main page
+ * SearchBarFiltersSort: Search bar and filters button / dropdown line for the main page
  * @param searchInput search bar input
  * @param handleSearchChange handle changing search bar input
  * @param showOrigins show origins boolean (useState 1/2)
@@ -25,9 +27,11 @@ interface SearchProps {
  * @param setShowPrice set show types boolean (useState 2/2)
  * @param showAbv show abv boolean (useState 1/2)
  * @param setShowAbv set show abv boolean (useState 2/2)
+ * @param sortBy sort by string (useState 1/2)
+ * @param setSortBy set sort by string (useState 2/2)
  * @returns tsx component
  */
-const SearchBarFilters: FC<SearchProps> = ({
+const SearchBarFiltersSort: FC<SearchProps> = ({
   searchInput,
   handleSearchChange,
   showOrigins,
@@ -38,10 +42,18 @@ const SearchBarFilters: FC<SearchProps> = ({
   setShowPrice,
   showAbv,
   setShowAbv,
+  sortBy,
+  setSortBy,
 }: SearchProps) => {
+
+  function onChangeSortBy(e: any) {
+    const tVal = e.target.value;
+    setSortBy(tVal);
+  }  
+
   return (
     <div className="grid grid-cols-6 gap-5">
-      <div className="col-span-5">
+      <div className="col-span-4">
         <form>
           <input
             key="search-bar"
@@ -56,7 +68,7 @@ const SearchBarFilters: FC<SearchProps> = ({
       </div>
       <div className="dropdown dropdown-end">
         <label tabIndex={0} className="btn w-full bg-gray-800">
-          Filters
+          Filters:
         </label>
         <ul
           tabIndex={0}
@@ -76,8 +88,18 @@ const SearchBarFilters: FC<SearchProps> = ({
           </li>
         </ul>
       </div>
+      <select className="select w-full max-w-xs" onChange={onChangeSortBy}>
+        <option disabled selected>
+          Sort By: 
+        </option>
+        <option value={"name"}>Name</option>
+        <option value={"pricelh"}>Price (low -&gt; high)</option>
+        <option value={"pricehl"}>Price (high -&gt; low)</option>
+        <option value={"abvlh"}>Abv (low -&gt; high)</option>
+        <option value={"abvhl"}>Abv (high -&gt; low)</option>
+      </select>
     </div>
   );
 };
 
-export default SearchBarFilters;
+export default SearchBarFiltersSort;
