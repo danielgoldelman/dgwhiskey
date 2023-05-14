@@ -42,7 +42,7 @@ const TypesFilter: FC<TypesProps> = ({
    * @param b boolean of whether or not the button is on
    * @returns string of the css relative to the button having been clicked
    */
-  const typeButtons = (b: boolean): string => {
+  function typeButtons (b: boolean): string {
     if (!b) {
       return "p-2 border-2 rounded-lg border-black bg-gray-800 col-span-1 cursor-pointer text-center";
     }

@@ -89,44 +89,41 @@
     },
     {
         "drink": {
-            "id": "837885c8f8091aeaeb9ec3c3f85a6ff470a415e610b8ba3e49f9b33c9cf9d619",
-            "name": "Johnny Drum Private Stock",
-            "maker": "Willet Distillery",
+            "id": "2",
+            "name": "Loch Lomond 12 Year",
+            "maker": "Loch Lomond Distillery",
             "ownedBy": "Private",
-            "origin": "American",
-            "type": "Bourbon",
-            "price": 50,
-            "abv": 50.5,
+            "origin": "Scottish",
+            "type": "Single Malt",
+            "price": 43,
+            "abv": 46,
             "reviewed": true,
             "fullTasting": {
                 "look": {
                     "bottomColor": "Light Amber",
                     "topColor": "Water / Honey",
                     "extraColors": [
-                        "Orange",
-                        "Marroon"
+                        "Pink",
+                        "Green"
                     ],
                     "viscosity": "Clingy"
                 },
                 "taste": {
                     "shapeT": [
-                        "front left/right",
-                        "tip",
-                        "middle fuzz",
-                        "back fuzz,"
+                        "middle fuzz, back fuzz, side fuzz"
                     ],
-                    "bitternessT": "Tongue focused, buzzing",
-                    "tasteT": "Woody, amber, honey, nutty",
-                    "tastingNotesT": "Larger sips, swirl around the mouth, breathe during the linger"
+                    "bitternessT": "Very bitter, biting",
+                    "tasteT": "Woody, amber, peach, earthy",
+                    "tastingNotesT": "small sip, swirl. No need to try and find the flavors"
                 },
                 "linger": {
                     "shapeL": [
-                        "Tip",
                         "middle fuzz",
-                        "far left/right tinge"
+                        "far left/right tinge",
+                        "fuzzy back"
                     ],
-                    "tasteL": "Chocolate, citrus, nutty",
-                    "tastingNotesL": "You can go either sweet (mango, grapes, apples) or deep (jerky, pizza). I prefer breathing through the nose to let the taste linger as long as possible."
+                    "tasteL": "bitter, orange, earthy",
+                    "tastingNotesL": "You can go either sweet (mango, grapes, apples, chocolate) or deep (jerky, pizza). This flavor will sit for a while if unaltered, so newer whiskey drinkers should have something nearby to cut the taste. More experienced drinkers could specifically enjoy a cigar or jerky."
                 }
             }
         }

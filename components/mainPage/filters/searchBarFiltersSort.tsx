@@ -58,7 +58,7 @@ const SearchBarFiltersSort: FC<SearchProps> = ({
 
   return (
     <div className="grid grid-cols-6 gap-5">
-      <div className="col-span-4">
+      <div className="lg:col-span-4 col-span-full">
         <form>
           <input
             key="search-bar"
@@ -71,9 +71,9 @@ const SearchBarFiltersSort: FC<SearchProps> = ({
           />
         </form>
       </div>
-      <div className="dropdown dropdown-end">
+      <div className="dropdown dropdown-bottom col-span-3 lg:col-span-1">
         <label tabIndex={0} className="btn w-full bg-gray-800">
-          Filters:
+          Filters
         </label>
         <ul
           tabIndex={0}
@@ -93,8 +93,8 @@ const SearchBarFiltersSort: FC<SearchProps> = ({
           </li>
         </ul>
       </div>
-      <select className="select w-full max-w-xs" onChange={onChangeSortBy}>
-        <option disabled selected>
+      <select className="select w-full max-w-xs lg:col-span-1 col-span-3" onChange={onChangeSortBy}>
+        <option disabled>
           Sort By:
         </option>
         <option value={"name"}>Name</option>

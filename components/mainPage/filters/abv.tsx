@@ -13,7 +13,7 @@ interface AbvProps {
 const Abv: FC<AbvProps> = ({ setMinA, setMaxA }: AbvProps) => {
 
   // changing filter input for price
-  const handleChangeFilterInput = (e: any) => {
+  function handleChangeFilterInput (e: any) {
     const val = e.target.value;
     switch (e.target.name) {
       case "minP":

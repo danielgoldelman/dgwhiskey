@@ -13,7 +13,7 @@ interface PriceProps {
 const Price: FC<PriceProps> = ({ setMinP, setMaxP }: PriceProps) => {
 
   // changing filter input for price
-  const handleChangeFilterInput = (e: any) => {
+  function handleChangeFilterInput (e: any) {
     const val = e.target.value;
     switch (e.target.name) {
       case "minP":

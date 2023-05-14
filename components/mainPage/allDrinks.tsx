@@ -13,7 +13,6 @@ import NameAbvCostLine from "./nameAbvCostLine";
 import ShowAllDrinks from "./showAllDrinks";
 
 import { origins, types } from "../statics";
-import sortByFun from "./sortByFun";
 
 export default function AllDrinks() {
   // All drinks in database
@@ -58,19 +57,40 @@ export default function AllDrinks() {
   /**
    * getDrinks: get all drinks from json file and format as type Drink
    */
-  const getDrinks = () => {
+  function getDrinks() {
     var retDrinks = [];
     for (var i = 0; i < GimmeDrinks.length; i++) {
       let newDrink = GimmeDrinks[i] as Drink;
       retDrinks.push(newDrink);
     }
     setAllDrinks(retDrinks);
-  };
+  }
 
   // useEffect: on page load, get all drinks
   useEffect(() => {
     getDrinks();
   }, []);
+
+  function sortByFun(showDrinks: Drink[], choice: string): Drink[] {
+    switch (choice) {
+      case "name":
+        return showDrinks.sort((a, b) => (a.drink.name < b.drink.name ? -1 : 1));
+      case "pricelh":
+        return showDrinks.sort((a, b) =>
+          a.drink.price < b.drink.price ? -1 : 1
+        );
+      case "pricehl":
+        return showDrinks.sort((a, b) =>
+          a.drink.price > b.drink.price ? -1 : 1
+        );
+      case "abvlh":
+        return showDrinks.sort((a, b) => (a.drink.abv < b.drink.abv ? -1 : 1));
+      case "abvhl":
+        return showDrinks.sort((a, b) => (a.drink.abv > b.drink.abv ? -1 : 1));
+      default:
+        return showDrinks;
+    }
+  }
 
   // var to keep track of all drinks to be shown based on filters
   var showDrinks = sortByFun(allDrinks, sortBy);

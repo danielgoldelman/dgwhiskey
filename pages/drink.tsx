@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
@@ -10,8 +11,9 @@ import {
 } from "../public/static/interfaces";
 import GimmeDrinks from "../public/static/hold.json";
 import { defaultDrink } from "../components/statics";
+import DrinkMain from "@/components/drink/singleDrink";
 
-export default function SingleDrink() {
+export default function DrinkPage() {
   const [singleDrink, setSingleDrink] = useState<ReviewedDrink>();
   const [look, setLook] = useState<Look>();
   const [taste, setTaste] = useState<Taste>();
@@ -36,7 +38,6 @@ export default function SingleDrink() {
   useEffect(() => {
     reqIDnull ? selectedDrink(reqIDnull) : selectedDrink("");
   }, [reqIDnull]);
-
   return (
     <>
       <Head>
@@ -45,66 +46,19 @@ export default function SingleDrink() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className="sticky z-50 top-0 inset-x-0 flex flex-wrap w-full border-b border-gray-200 shadow-lg py-5 bg-[#0d1117]">
-        <div className="relative left-[3%] text-3xl">{"DG \xa0 Whisk(e)y"}</div>
+      <header className="sticky z-50 top-0 inset-x-0 border-b border-gray-200 shadow-lg p-5 bg-[#0d1117] grid grid-cols-7">
+        <div className="relative left-[3%] text-3xl col-span-6">
+          {"DG \xa0 Whisk(e)y"}
+        </div>
+        <button
+          className="rounded-2xl text-xl bg-gray-500 text-center cursor-pointer col-span-1"
+          onClick={() => window.location.assign("./")}
+        >
+          Back
+        </button>
       </header>
-      <main>
-        {singleDrink && look && taste && linger ? (
-          <div className="grid grid-cols-11 py-14">
-            <div className="col-span-9 col-start-2 border border-white">
-              <div className="text-8xl pb-10">{singleDrink.name}</div>
-              <div className="text-5xl pb-10">
-                {"Distillery: " + singleDrink.maker}
-              </div>
-              <div className="text-5xl pb-10">
-                {"Owned By: " + singleDrink.ownedBy}
-              </div>
-              <div className="text-5xl pb-10">
-                {"Type: " + singleDrink.type}
-              </div>
-              <div className="flex">
-                <div className="text-3xl">
-                  {"ABV: " + singleDrink.abv.toString() + "%"}
-                </div>
-                <div className="px-5"></div>
-                <div className="text-3xl">
-                  {"Price: $" + singleDrink.price.toString()}
-                </div>
-              </div>
-              <div className="py-8"></div>
-              <div>
-                <div className="text-3xl">
-                  {"Bottom Color: " + look.bottomColor}
-                </div>
-                <div className="text-3xl">{"Top Color: " + look.topColor}</div>
-                <div className="text-3xl">
-                  {"Extra Colors: " + look.extraColors}
-                </div>
-              </div>
-              <div className="py-8"></div>
-              <div>
-                <div className="text-3xl">{"ShapeT: " + taste.shapeT}</div>
-                <div className="text-3xl">
-                  {"Bitterness: " + taste.bitternessT}
-                </div>
-                <div className="text-3xl">{"TasteT: " + taste.tasteT}</div>
-                <div className="text-3xl">
-                  {"TastingNotesT: " + taste.tastingNotesT}
-                </div>
-              </div>
-              <div className="py-8"></div>
-              <div>
-                <div className="text-3xl">{"ShapeL: " + linger.shapeL}</div>
-                <div className="text-3xl">{"TasteL: " + linger.tasteL}</div>
-                <div className="text-3xl">
-                  {"TastingNotesL: " + linger.tastingNotesL}
-                </div>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <></>
-        )}
+      <main className="h-full bg-gradient-to-b from-black to-orange-400 bg-auto justify-center flex overflow-y-auto relative">
+        <DrinkMain />
       </main>
     </>
   );

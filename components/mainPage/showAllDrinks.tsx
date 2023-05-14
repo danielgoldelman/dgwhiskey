@@ -8,7 +8,7 @@ interface MultDrinks {
 
 /**
  * ShowAllDrinks: showing all drinks that fit with the current filters
- * @param showDrinks 
+ * @param showDrinks
  * @returns tsx component
  */
 export const ShowAllDrinks: FC<MultDrinks> = ({ showDrinks }: MultDrinks) => {
@@ -29,7 +29,7 @@ export const ShowAllDrinks: FC<MultDrinks> = ({ showDrinks }: MultDrinks) => {
           },
         }) => {
           return reviewed ? (
-            <div className="collapse rounded-2xl text-2xl bg-[#0d1117] my-5">
+            <div className="collapse rounded-2xl text-l sm:text-xl md:text-2xl xl:text-3xl bg-[#0d1117] my-5">
               <input type="checkbox" />
               <div className="flex p-3 collapse-title">
                 <div className="w-4/6 pl-5">{name}</div>
@@ -38,21 +38,21 @@ export const ShowAllDrinks: FC<MultDrinks> = ({ showDrinks }: MultDrinks) => {
                   {"$" + price.toString()}
                 </div>
               </div>
-              <div className="collapse-content grid grid-cols-6 mx-5 gap-2">
-                <div className="rounded-2xl text-xl bg-green-500 col-span-1 text-center">
+              <div className="collapse-content grid grid-cols-6 mx-5 sm:px-2 gap-x-3 sm:gap-x-8 gap-y-3 text-s sm:text-m md:text-xl lg:text-2xl text-center">
+                <div className="rounded-2xl bg-green-500 col-span-3 lg:col-span-2 lg:col-start-2 px-2">
                   {origin}
                 </div>
-                <div className="rounded-2xl text-xl bg-[#3c46fb] col-span-1 text-center">
+                <div className="rounded-2xl bg-[#3c46fb] col-span-3 lg:col-span-2 px-2">
                   {type}
                 </div>
-                <div className="rounded-2xl text-xl bg-[#923cfb] col-span-2 text-center">
+                <div className="rounded-2xl bg-[#923cfb] col-span-3 lg:col-span-2 lg:col-start-2 px-2">
                   {maker}
                 </div>
-                <div className="rounded-2xl text-xl bg-[#923cfb] col-span-1 text-center">
+                <div className="rounded-2xl bg-[#923cfb] col-span-3 lg:col-span-2 px-2">
                   {ownedBy}
                 </div>
                 <Link
-                  className="col-start-6 col-span-1"
+                  className="col-span-full lg:col-start-2 lg:col-span-4"
                   href={{
                     pathname: "./drink",
                     query: {
@@ -60,14 +60,14 @@ export const ShowAllDrinks: FC<MultDrinks> = ({ showDrinks }: MultDrinks) => {
                     },
                   }}
                 >
-                  <div className="rounded-2xl text-xl bg-gray-500 text-center">
+                  <div className="rounded-2xl text-s sm:text-m md:text-xl lg:text-2xl bg-gray-500 text-center">
                     Full Review
                   </div>
                 </Link>
               </div>
             </div>
           ) : (
-            <div className="collapse rounded-2xl text-2xl bg-[#0d1117] my-5">
+            <div className="collapse rounded-2xl text-m sm:text-xl md:text-2xl xl:text-3xl bg-[#0d1117] my-5 px-2">
               <input type="checkbox" />
               <div className="flex p-3 collapse-title">
                 <div className="w-4/6 pl-5">{name + " *"}</div>
@@ -76,17 +76,17 @@ export const ShowAllDrinks: FC<MultDrinks> = ({ showDrinks }: MultDrinks) => {
                   {"$" + price.toString()}
                 </div>
               </div>
-              <div className="collapse-content grid grid-cols-6 mx-5 gap-2">
-                <div className="rounded-2xl text-xl bg-green-500 col-span-1 text-center">
+              <div className="collapse-content grid grid-cols-6 mx-5 sm:px-2 gap-x-3 sm:gap-x-8 gap-y-3 text-s sm:text-m md:text-xl lg:text-2xl text-center">
+                <div className="rounded-2xl bg-green-500 col-span-3 lg:col-span-2 lg:col-start-2 px-2">
                   {origin}
                 </div>
-                <div className="rounded-2xl text-xl bg-[#3c46fb] col-span-1 text-center">
+                <div className="rounded-2xl bg-[#3c46fb] col-span-3 lg:col-span-2 px-2">
                   {type}
                 </div>
-                <div className="rounded-2xl text-xl bg-[#923cfb] col-span-2 text-center">
+                <div className="rounded-2xl bg-[#923cfb] col-span-3 lg:col-span-2 lg:col-start-2 px-2">
                   {maker}
                 </div>
-                <div className="rounded-2xl text-xl bg-[#923cfb] col-span-1 text-center">
+                <div className="rounded-2xl bg-[#923cfb] col-span-3 lg:col-span-2 px-2">
                   {ownedBy}
                 </div>
               </div>
