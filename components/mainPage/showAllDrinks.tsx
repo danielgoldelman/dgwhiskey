@@ -67,7 +67,7 @@ export const ShowAllDrinks: FC<MultDrinks> = ({ showDrinks }: MultDrinks) => {
               </div>
             </div>
           ) : (
-            <div className="collapse rounded-2xl text-m sm:text-xl md:text-2xl xl:text-3xl bg-[#0d1117] my-5 px-2">
+            <div className="collapse rounded-2xl text-m sm:text-xl md:text-2xl xl:text-3xl bg-[#0d1117] my-5">
               <input type="checkbox" />
               <div className="flex p-3 collapse-title">
                 <div className="w-4/6 pl-5">{name + " *"}</div>
