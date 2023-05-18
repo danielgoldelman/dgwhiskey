@@ -1,4 +1,4 @@
-import { FC, SetStateAction } from "react";
+import { FC, SetStateAction, useState } from "react";
 
 interface SearchProps {
   searchInput: string;
@@ -43,6 +43,12 @@ const SearchBarFiltersSort: FC<SearchProps> = ({
   setShowAbv,
   setSortBy,
 }: SearchProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
   // chaning input for search bar
   function handleSearchChange(e: any) {
     e.preventDefault();
@@ -70,10 +76,10 @@ const SearchBarFiltersSort: FC<SearchProps> = ({
         </form>
       </div>
       <div className="dropdown dropdown-bottom col-span-3 lg:col-span-1">
-        <label tabIndex={0} className="btn w-full bg-gray-800">
+        <label tabIndex={0} className="btn w-full bg-gray-800" onClick={toggleDropdown}>
           Filters
         </label>
-        <ul
+        {isOpen?<ul
           tabIndex={0}
           className="dropdown-content menu p-2 shadow bg-gray-800 rounded-box w-52 mt-2"
         >
@@ -89,9 +95,13 @@ const SearchBarFiltersSort: FC<SearchProps> = ({
           <li>
             <button onClick={() => setShowAbv(!showAbv)}>Abv</button>
           </li>
-        </ul>
+        </ul>:<></>}
       </div>
-      <select className="select w-full max-w-xs lg:col-span-1 col-span-3" onChange={onChangeSortBy} defaultValue={"name"}>
+      <select
+        className="select w-full max-w-xs lg:col-span-1 col-span-3"
+        onChange={onChangeSortBy}
+        defaultValue={"name"}
+      >
         <option disabled={true} value={""}>
           Sort By:
         </option>
