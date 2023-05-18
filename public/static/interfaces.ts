@@ -30,6 +30,7 @@ export interface Linger {
  * FullTasting: interface for FullTasting section of a ReviewedDrink
  */
 export interface FullTasting {
+    overview: string
     look: Look
     taste: Taste
     linger: Linger

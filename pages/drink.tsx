@@ -46,20 +46,24 @@ export default function DrinkPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className="sticky z-50 top-0 inset-x-0 border-b border-gray-200 shadow-lg p-5 bg-[#0d1117] grid grid-cols-7">
-        <div className="relative left-[3%] text-3xl col-span-6">
-          {"DG \xa0 Whisk(e)y"}
-        </div>
-        <button
-          className="rounded-2xl text-xl bg-gray-500 text-center cursor-pointer col-span-1"
-          onClick={() => window.location.assign("./")}
-        >
-          Back
-        </button>
-      </header>
-      <main className="h-full bg-gradient-to-b from-black to-orange-400 bg-auto justify-center flex overflow-y-auto relative">
-        <DrinkMain />
-      </main>
+      <div className="flex flex-col h-screen">
+        <header className="sticky z-50 top-0 inset-x-0 border-b border-gray-200 shadow-lg p-5 bg-[#0d1117] grid grid-cols-7">
+          <div className="relative left-[7%] sm:left-[5%] xl:left-[3%] text-3xl col-span-6">
+            {"DG \xa0 Whisk(e)y"}
+          </div>
+          <button
+            className="rounded-2xl text-xl bg-gray-500 text-center cursor-pointer col-span-1"
+            onClick={() => window.location.assign("./")}
+          >
+            Back
+          </button>
+        </header>
+        <main className="flex-grow h-full bg-gradient-to-b from-black to-orange-400 bg-auto justify-center flex overflow-y-auto relative">
+          <div className="flex-row">
+            <DrinkMain />
+          </div>
+        </main>
+      </div>
     </>
   );
 }

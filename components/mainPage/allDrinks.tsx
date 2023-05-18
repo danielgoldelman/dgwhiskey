@@ -201,7 +201,7 @@ export default function AllDrinks() {
   }
 
   return (
-    <div className="w-3/4">
+    <div className="w-5/6 sm:w-3/4">
       <div className="pt-5"></div>
       <SearchBarFiltersSort
         searchInput={searchInput}
