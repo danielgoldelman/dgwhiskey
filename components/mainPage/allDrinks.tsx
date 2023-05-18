@@ -4,8 +4,8 @@ import { Drink } from "@/public/static/interfaces";
 import GimmeDrinks from "@/public/static/hold.json";
 
 import SearchBarFiltersSort from "./filters/searchBarFiltersSort";
-import OriginFilter from "./filters/origin";
-import TypesFilter from "./filters/types";
+import { OriginFilter, OriginGroup } from "./filters/origin";
+import { TypesFilter, TypesGroup} from "./filters/types";
 import Abv from "./filters/abv";
 import Price from "./filters/price";
 
@@ -20,13 +20,13 @@ export default function AllDrinks() {
 
   // Input for searching by name
   const [searchInput, setSearchInput] = useState<string>("");
-
+  
   // booleans for showing/not showing the different filters
   const [showOrigins, setShowOrigins] = useState<boolean>(false);
   const [showTypes, setShowTypes] = useState<boolean>(false);
   const [showPrice, setShowPrice] = useState<boolean>(false);
   const [showAbv, setShowAbv] = useState<boolean>(false);
-
+  
   // booleans for origins
   const [americanB, setAmericanB] = useState<boolean>(true);
   const [scottishB, setScottishB] = useState<boolean>(true);
@@ -36,10 +36,7 @@ export default function AllDrinks() {
   const [englishB, setEnglishB] = useState<boolean>(true);
   const [welshB, setWelshB] = useState<boolean>(true);
   const [indianB, setIndianB] = useState<boolean>(true);
-
-  // string for sort by
-  const [sortBy, setSortBy] = useState<string>("");
-
+  
   // booleans for types
   const [bourbonB, setBourbonB] = useState<boolean>(true);
   const [ryeB, setRyeB] = useState<boolean>(true);
@@ -47,12 +44,15 @@ export default function AllDrinks() {
   const [singlePotB, setSinglePotB] = useState<boolean>(true);
   const [singleMaltB, setSingleMaltB] = useState<boolean>(true);
   const [blendedB, setBlendedB] = useState<boolean>(true);
-
+  
   // numbers for min/max price, min/max abv
   const [minP, setMinP] = useState<number>(0);
   const [maxP, setMaxP] = useState<number>(1000);
   const [minA, setMinA] = useState<number>(0);
   const [maxA, setMaxA] = useState<number>(100);
+  
+  // string for sort by
+  const [sortBy, setSortBy] = useState<string>("");
 
   /**
    * getDrinks: get all drinks from json file and format as type Drink
@@ -74,7 +74,9 @@ export default function AllDrinks() {
   function sortByFun(showDrinks: Drink[], choice: string): Drink[] {
     switch (choice) {
       case "name":
-        return showDrinks.sort((a, b) => (a.drink.name < b.drink.name ? -1 : 1));
+        return showDrinks.sort((a, b) =>
+          a.drink.name < b.drink.name ? -1 : 1
+        );
       case "pricelh":
         return showDrinks.sort((a, b) =>
           a.drink.price < b.drink.price ? -1 : 1
@@ -200,6 +202,40 @@ export default function AllDrinks() {
     });
   }
 
+  const originList = [
+    [americanB, origins.american, setAmericanB],
+    [scottishB, origins.scottish, setScottishB],
+    [irishB, origins.irish, setIrishB],
+    [canadianB, origins.canadian, setCanadianB],
+    [japaneseB, origins.japanese, setJapaneseB],
+    [englishB, origins.english, setEnglishB],
+    [welshB, origins.welsh, setWelshB],
+    [indianB, origins.indian, setIndianB],
+  ];
+  const originGroups = originList.map((element: any[]) => {
+    return {
+      bool: element[0],
+      str: element[1],
+      fun: element[2],
+    } as OriginGroup;
+  });
+  
+  const typesList = [
+    [bourbonB, types.bourbon, setBourbonB],
+    [ryeB, types.rye, setRyeB],
+    [tennesseeB, types.tennessee, setTennesseeB], 
+    [singlePotB, types.singlePot, setSinglePotB],
+    [singleMaltB, types.singleMalt, setSingleMaltB],
+    [blendedB, types.blended, setBlendedB]
+  ]
+  const typesGroups = typesList.map((element: any[]) => {
+    return {
+      bool: element[0],
+      str: element[1],
+      fun: element[2],
+    } as TypesGroup;
+  });
+  
   return (
     <div className="w-5/6 sm:w-3/4">
       <div className="pt-5"></div>
@@ -214,67 +250,18 @@ export default function AllDrinks() {
         setShowPrice={setShowPrice}
         showAbv={showAbv}
         setShowAbv={setShowAbv}
-        sortBy={sortBy}
         setSortBy={setSortBy}
       />
       {showOrigins ? (
         <>
-          <OriginFilter
-            b1={americanB}
-            b2={scottishB}
-            b3={irishB}
-            b4={canadianB}
-            s1={origins.american}
-            s2={origins.scottish}
-            s3={origins.irish}
-            s4={origins.canadian}
-            f1={setAmericanB}
-            f2={setScottishB}
-            f3={setIrishB}
-            f4={setCanadianB}
-          />
-          <OriginFilter
-            b1={japaneseB}
-            b2={englishB}
-            b3={welshB}
-            b4={indianB}
-            s1={origins.japanese}
-            s2={origins.english}
-            s3={origins.welsh}
-            s4={origins.indian}
-            f1={setJapaneseB}
-            f2={setEnglishB}
-            f3={setWelshB}
-            f4={setIndianB}
-          />
+          <OriginFilter origins={originGroups} />
         </>
       ) : (
         <></>
       )}
       {showTypes ? (
         <>
-          <TypesFilter
-            b1={bourbonB}
-            b2={ryeB}
-            b3={tennesseeB}
-            s1={types.bourbon}
-            s2={types.rye}
-            s3={types.tennessee}
-            f1={setBourbonB}
-            f2={setRyeB}
-            f3={setTennesseeB}
-          />
-          <TypesFilter
-            b1={singlePotB}
-            b2={singleMaltB}
-            b3={blendedB}
-            s1={types.singlePot}
-            s2={types.singleMalt}
-            s3={types.blended}
-            f1={setSinglePotB}
-            f2={setSingleMaltB}
-            f3={setBlendedB}
-          />
+          <TypesFilter types={typesGroups} />
         </>
       ) : (
         <></>

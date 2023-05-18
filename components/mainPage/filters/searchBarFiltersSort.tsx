@@ -11,7 +11,6 @@ interface SearchProps {
   setShowPrice(value: SetStateAction<boolean>): void;
   showAbv: boolean;
   setShowAbv(value: SetStateAction<boolean>): void;
-  sortBy: string;
   setSortBy(value: SetStateAction<string>): void;
 }
 
@@ -42,7 +41,6 @@ const SearchBarFiltersSort: FC<SearchProps> = ({
   setShowPrice,
   showAbv,
   setShowAbv,
-  sortBy,
   setSortBy,
 }: SearchProps) => {
   // chaning input for search bar
