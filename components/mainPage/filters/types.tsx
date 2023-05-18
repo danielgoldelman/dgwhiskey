@@ -34,6 +34,7 @@ const TypesFilter: FC<TypesProps> = ({ types }: TypesProps) => {
         if (element.str == "Bourbon" || element.str == "Single Pot") {
           return (
             <input
+              key={element.str}
               type="button"
               value={element.str}
               className={typeButtons(element.bool) + " md:col-start-2"}
@@ -43,6 +44,7 @@ const TypesFilter: FC<TypesProps> = ({ types }: TypesProps) => {
         }
         return (
           <input
+            key={element.str}
             type="button"
             value={element.str}
             className={typeButtons(element.bool)}
@@ -55,4 +57,4 @@ const TypesFilter: FC<TypesProps> = ({ types }: TypesProps) => {
 };
 
 export { TypesFilter };
-export type { TypesGroup }
+export type { TypesGroup };

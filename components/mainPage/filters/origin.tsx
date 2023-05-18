@@ -1,5 +1,5 @@
 import { FC, SetStateAction } from "react";
- 
+
 interface OriginGroup {
   bool: boolean;
   str: string;
@@ -7,7 +7,7 @@ interface OriginGroup {
 }
 
 interface OriginProps {
-  origins: OriginGroup[]
+  origins: OriginGroup[];
 }
 
 /**
@@ -15,9 +15,7 @@ interface OriginProps {
 
  * @returns tsx component
  */
-const OriginFilter: FC<OriginProps> = ({
-  origins
-}: OriginProps) => {
+const OriginFilter: FC<OriginProps> = ({ origins }: OriginProps) => {
   /**
    * originButtons: takes in whether or not the button is on, then returns the related css
    * @param b boolean of whether or not the button is on
@@ -36,15 +34,17 @@ const OriginFilter: FC<OriginProps> = ({
         if (element.str == "American" || element.str == "Japanese") {
           return (
             <input
+              key={element.str}
               type="button"
               value={element.str}
               className={originButtons(element.bool) + " md:col-start-2"}
               onClick={() => element.fun(!element.bool)}
             />
           );
-        } 
+        }
         return (
           <input
+            key={element.str}
             type="button"
             value={element.str}
             className={originButtons(element.bool)}
