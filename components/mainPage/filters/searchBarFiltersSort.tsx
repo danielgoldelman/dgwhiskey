@@ -100,9 +100,9 @@ const SearchBarFiltersSort: FC<SearchProps> = ({
       <select
         className="select w-full max-w-xs lg:col-span-1 col-span-3"
         onChange={onChangeSortBy}
-        defaultValue={"name"}
+        defaultValue={"sort"}
       >
-        <option disabled={true} value={""}>
+        <option disabled={true} value={"sort"}>
           Sort By:
         </option>
         <option value={"name"}>Name</option>
