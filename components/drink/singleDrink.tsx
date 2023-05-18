@@ -43,7 +43,7 @@ export default function DrinkMain() {
               {singleDrink.name}
             </div>
             <div className="sm:grid sm:grid-cols-2 sm:gap-4 place-items-center">
-              <div className="col-span-1 text-sm sm:text-lg md:text-2xl lg:text-3xl xl:text-5xl">
+              <div className="col-span-1 text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl">
                 <div className="inline-flex gap-3 pb-4 sm:pb-6 md:pb-8 lg:pb-14 xl:pb-16 2xl:pb-20">
                   <div className="underline lg:decoration-2 underline-offset-2 lg:underline-offset-4 xl:pr-2">
                     Distillery:
@@ -91,7 +91,7 @@ export default function DrinkMain() {
               />
             </div>
             <div className="py-4 lg:py-4 xl:py-6"></div>
-            <div className="text-xs sm:text-base md:text-2xl 2xl:text-3xl pb-4 sm:text-justify">
+            <div className="text-base sm:text-lg md:text-2xl 2xl:text-3xl pb-4 sm:text-justify">
               {overview}
             </div>
           </div>

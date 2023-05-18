@@ -5,7 +5,7 @@ import GimmeDrinks from "@/public/static/hold.json";
 
 import SearchBarFiltersSort from "./filters/searchBarFiltersSort";
 import { OriginFilter, OriginGroup } from "./filters/origin";
-import { TypesFilter, TypesGroup} from "./filters/types";
+import { TypesFilter, TypesGroup } from "./filters/types";
 import Abv from "./filters/abv";
 import Price from "./filters/price";
 
@@ -20,13 +20,13 @@ export default function AllDrinks() {
 
   // Input for searching by name
   const [searchInput, setSearchInput] = useState<string>("");
-  
+
   // booleans for showing/not showing the different filters
   const [showOrigins, setShowOrigins] = useState<boolean>(false);
   const [showTypes, setShowTypes] = useState<boolean>(false);
   const [showPrice, setShowPrice] = useState<boolean>(false);
   const [showAbv, setShowAbv] = useState<boolean>(false);
-  
+
   // booleans for origins
   const [americanB, setAmericanB] = useState<boolean>(true);
   const [scottishB, setScottishB] = useState<boolean>(true);
@@ -36,7 +36,7 @@ export default function AllDrinks() {
   const [englishB, setEnglishB] = useState<boolean>(true);
   const [welshB, setWelshB] = useState<boolean>(true);
   const [indianB, setIndianB] = useState<boolean>(true);
-  
+
   // booleans for types
   const [bourbonB, setBourbonB] = useState<boolean>(true);
   const [ryeB, setRyeB] = useState<boolean>(true);
@@ -44,13 +44,13 @@ export default function AllDrinks() {
   const [singlePotB, setSinglePotB] = useState<boolean>(true);
   const [singleMaltB, setSingleMaltB] = useState<boolean>(true);
   const [blendedB, setBlendedB] = useState<boolean>(true);
-  
+
   // numbers for min/max price, min/max abv
   const [minP, setMinP] = useState<number>(0);
   const [maxP, setMaxP] = useState<number>(200);
   const [minA, setMinA] = useState<number>(0);
   const [maxA, setMaxA] = useState<number>(60);
-  
+
   // string for sort by
   const [sortBy, setSortBy] = useState<string>("");
 
@@ -219,15 +219,15 @@ export default function AllDrinks() {
       fun: element[2],
     } as OriginGroup;
   });
-  
+
   const typesList = [
     [bourbonB, types.bourbon, setBourbonB],
     [ryeB, types.rye, setRyeB],
-    [tennesseeB, types.tennessee, setTennesseeB], 
+    [tennesseeB, types.tennessee, setTennesseeB],
     [singlePotB, types.singlePot, setSinglePotB],
     [singleMaltB, types.singleMalt, setSingleMaltB],
-    [blendedB, types.blended, setBlendedB]
-  ]
+    [blendedB, types.blended, setBlendedB],
+  ];
   const typesGroups = typesList.map((element: any[]) => {
     return {
       bool: element[0],
@@ -235,7 +235,7 @@ export default function AllDrinks() {
       fun: element[2],
     } as TypesGroup;
   });
-  
+
   return (
     <div className="w-5/6 sm:w-3/4">
       <div className="pt-5"></div>
