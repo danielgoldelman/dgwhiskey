@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { ReviewedDrink, Look, Taste, Linger } from "@/public/static/interfaces";
 import GimmeDrinks from "@/public/static/hold.json";
 import { defaultDrink } from "@/components/statics";
+import Image from "next/image";
 
 export default function DrinkMain() {
   const [singleDrink, setSingleDrink] = useState<ReviewedDrink>();
@@ -21,7 +22,7 @@ export default function DrinkMain() {
       }
     }
     setSingleDrink(drink);
-    setOverview(drink.fullTasting.overview)
+    setOverview(drink.fullTasting.overview);
     setLook(drink.fullTasting.look);
     setTaste(drink.fullTasting.taste);
     setLinger(drink.fullTasting.linger);
@@ -38,7 +39,9 @@ export default function DrinkMain() {
       {singleDrink && overview && look && taste && linger ? (
         <div className="grid grid-cols-11 py-8 sm:py-14">
           <div className="col-span-9 col-start-2 border border-white bg-black py-5 px-5 sm:px-10">
-            <div className="text-4xl sm:text-6xl lg:text-8xl pb-5 sm:pb-10 text-center">{singleDrink.name}</div>
+            <div className="text-4xl sm:text-6xl lg:text-8xl pb-5 sm:pb-10 text-center">
+              {singleDrink.name}
+            </div>
             <div className="sm:grid sm:grid-cols-2 sm:gap-4 place-items-center">
               <div className="col-span-1 text-sm sm:text-lg md:text-2xl lg:text-3xl xl:text-5xl">
                 <div className="inline-flex gap-3 pb-4 sm:pb-6 md:pb-8 lg:pb-14 xl:pb-16 2xl:pb-20">
@@ -78,7 +81,11 @@ export default function DrinkMain() {
                 </div>
               </div>
               <img
-                src="images/whiskey.jpeg"
+                src={
+                  "images/" +
+                  singleDrink.name.toLocaleLowerCase().replaceAll(" ", "") +
+                  ".jpg"
+                }
                 alt="Photo of whiskey"
                 className="object-fill place-self-center w-full"
               />
