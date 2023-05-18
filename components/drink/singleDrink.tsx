@@ -4,7 +4,6 @@ import { useSearchParams } from "next/navigation";
 import { ReviewedDrink, Look, Taste, Linger } from "@/public/static/interfaces";
 import GimmeDrinks from "@/public/static/hold.json";
 import { defaultDrink } from "@/components/statics";
-import Image from "next/image";
 
 export default function DrinkMain() {
   const [singleDrink, setSingleDrink] = useState<ReviewedDrink>();

@@ -11,7 +11,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className='text-white'>
+      <div className='text-white flex flex-col h-screen'>
         <header className="sticky z-50 top-0 border-b border-gray-200 shadow-lg py-5 bg-[#0d1117]">
           <div className="relative left-[7%] sm:left-[5%] xl:left-[3%] text-3xl">{"DG \xa0 Whisk(e)y"}</div>
         </header>  
