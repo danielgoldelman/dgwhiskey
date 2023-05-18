@@ -33,7 +33,7 @@ const Price: FC<PriceProps> = ({ minP, maxP, setMinP, setMaxP }: PriceProps) => 
         <div className="self-center col-span-7">
           <Slider
             min={0}
-            max={200}
+            max={100}
             value={values}
             onChange={handleValuesChange}
             range

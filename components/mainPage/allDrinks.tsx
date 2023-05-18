@@ -47,7 +47,7 @@ export default function AllDrinks() {
 
   // numbers for min/max price, min/max abv
   const [minP, setMinP] = useState<number>(0);
-  const [maxP, setMaxP] = useState<number>(200);
+  const [maxP, setMaxP] = useState<number>(100);
   const [minA, setMinA] = useState<number>(0);
   const [maxA, setMaxA] = useState<number>(60);
 
