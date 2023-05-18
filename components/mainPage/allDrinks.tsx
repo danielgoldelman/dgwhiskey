@@ -47,9 +47,9 @@ export default function AllDrinks() {
   
   // numbers for min/max price, min/max abv
   const [minP, setMinP] = useState<number>(0);
-  const [maxP, setMaxP] = useState<number>(1000);
+  const [maxP, setMaxP] = useState<number>(200);
   const [minA, setMinA] = useState<number>(0);
-  const [maxA, setMaxA] = useState<number>(100);
+  const [maxA, setMaxA] = useState<number>(60);
   
   // string for sort by
   const [sortBy, setSortBy] = useState<string>("");
@@ -268,14 +268,14 @@ export default function AllDrinks() {
       )}
       {showPrice ? (
         <>
-          <Price setMinP={setMinP} setMaxP={setMaxP} />
+          <Price minP={minP} maxP={maxP} setMinP={setMinP} setMaxP={setMaxP} />
         </>
       ) : (
         <></>
       )}
       {showAbv ? (
         <>
-          <Abv setMinA={setMinA} setMaxA={setMaxA} />
+          <Abv minA={minA} maxA={maxA} setMinA={setMinA} setMaxA={setMaxA} />
         </>
       ) : (
         <></>

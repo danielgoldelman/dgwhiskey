@@ -1,6 +1,10 @@
-import { FC, SetStateAction } from "react";
+import { FC, SetStateAction, useState } from "react";
 
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 interface PriceProps {
+  minP: number;
+  maxP: number;
   setMinP(value: SetStateAction<number>): void;
   setMaxP(value: SetStateAction<number>): void;
 }
@@ -10,59 +14,38 @@ interface PriceProps {
  * @param handleChangeFilterInput handler for adjusting filter input
  * @returns tsx component
  */
-const Price: FC<PriceProps> = ({ setMinP, setMaxP }: PriceProps) => {
+const Price: FC<PriceProps> = ({ minP, maxP, setMinP, setMaxP }: PriceProps) => {
+  const [values, setValues] = useState<[number, number]>([minP, maxP]);
 
-  // changing filter input for price
-  function handleChangeFilterInput (e: any) {
-    const val = e.target.value;
-    switch (e.target.name) {
-      case "minP":
-        setMinP(val);
-        break;
-      case "maxP":
-        setMaxP(val);
-        break;
+  const handleValuesChange = (newValues: number | number[]) => {
+    if (Array.isArray(newValues)) {
+      setValues(newValues as [number, number]);
+      setMinP(values[0]);
+      setMaxP(values[1]);
     }
   };
+  
   return (
-    <div className="grid grid-cols-7 gap-2 pt-5">
-      <div className="col-start-2 col-span-2">
-        <div className="p-2 border-2 rounded-lg border-black bg-gray-800 col-span-1">
-          <div className="grid grid-cols-2">
-            <label htmlFor="minP" className="col-span-1 text-center">
-              Min Price =
-            </label>
-            <input
-              type="number"
-              name="minP"
-              min="0"
-              max="1000"
-              placeholder="0"
-              id="minP"
-              className="col-span-1"
-              onChange={handleChangeFilterInput}
-            />
-          </div>
+    <div className="pt-5 lg:px-20 xl:px-36">
+      <div className="p-2 border-2 rounded-lg border-black bg-gray-800 grid grid-cols-9 pb-6 gap-x-3 sm:gap-x-0">
+      <div className="col-span-full text-lg place-self-center">Price Range:</div>
+        <div className="place-self-center">{minP}</div>
+        <div className="self-center col-span-7">
+          <Slider
+            min={0}
+            max={200}
+            value={values}
+            onChange={handleValuesChange}
+            range
+            trackStyle={[{ backgroundColor: "#4F46E5" }]}
+            handleStyle={[
+              { backgroundColor: "#4F46E5", borderColor: "#4F46E5" },
+              { backgroundColor: "#4F46E5", borderColor: "#4F46E5" },
+            ]}
+            railStyle={{ backgroundColor: "#E5E7EB" }}
+          />
         </div>
-      </div>
-      <div className="col-span-2 col-start-5">
-        <div className="p-2 border-2 rounded-lg border-black bg-gray-800">
-          <div className="grid grid-cols-2">
-            <label htmlFor="maxP" className="col-span-1 text-center">
-              Max Price =
-            </label>
-            <input
-              type="number"
-              name="maxP"
-              min="0"
-              max="1000"
-              id="maxP"
-              className="col-span-1"
-              placeholder="1000"
-              onChange={handleChangeFilterInput}
-            />
-          </div>
-        </div>
+        <div className="place-self-center">{maxP}</div>
       </div>
     </div>
   );
