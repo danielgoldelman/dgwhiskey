@@ -41,6 +41,7 @@ export const defaultDrink = {
     abv: 10,
     reviewed: true,
     fullTasting: {
+      overview: "Test Overview",
       look: {
         bottomColor: "Test Bottom Color",
         topColor: "Test Top Color",
