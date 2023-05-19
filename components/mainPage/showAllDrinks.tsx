@@ -16,7 +16,6 @@ export default function ShowAllDrinks({ showDrinks }: MultDrinks) {
       {showDrinks.map(
         ({
           drink: {
-            id,
             name,
             origin,
             maker,
@@ -55,7 +54,7 @@ export default function ShowAllDrinks({ showDrinks }: MultDrinks) {
                   href={{
                     pathname: "./drink",
                     query: {
-                      id: id.toString(),
+                      name: name.toLowerCase().replaceAll(" ", ""),
                     },
                   }}
                 >

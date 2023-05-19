@@ -1,6 +1,33 @@
-import Image from "next/image";
+import ImageNext from "next/image";
+import { useEffect } from "react";
 
 export default function AboutContent() {
+  useEffect(() => {
+    let image: HTMLImageElement;
+
+    const preloadSvg = async () => {
+      try {
+        const response = await fetch("../../public/static/portrait.jpg");
+        if (response.ok) {
+          const blob = await response.blob();
+          const url = URL.createObjectURL(blob);
+          image = new Image();
+          image.src = url;
+        }
+      } catch (error) {
+        console.error("Failed to preload SVG:", error);
+      }
+    };
+
+    preloadSvg();
+
+    return () => {
+      if (image) {
+        URL.revokeObjectURL(image.src);
+      }
+    };
+  }, []);
+
   return (
     <div className="w-5/6 sm:w-3/4 py-8">
       <div className="pt-5"></div>
@@ -38,7 +65,7 @@ export default function AboutContent() {
           </div>
         </div>
         <div className="flex justify-center">
-          <Image
+          <ImageNext
             src="/static/linkedin.svg"
             alt="linkedin button"
             width={80}
@@ -51,7 +78,7 @@ export default function AboutContent() {
               )
             }
           />
-          <Image
+          <ImageNext
             src="/static/MiniMe.svg"
             alt="personal website button"
             width={35}

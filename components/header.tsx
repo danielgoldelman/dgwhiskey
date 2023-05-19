@@ -13,7 +13,10 @@ export default function Header() {
         {"DG \xa0 Whisk(e)y"}
       </div>
       <div className="navbar-end">
-        <div className="dropdown dropdown-end relative right-[7%] sm:right-[5%] xl:right-[3%]" onClick={toggleDropdown}>
+        <div
+          className="dropdown dropdown-end relative right-[7%] sm:right-[5%] xl:right-[3%]"
+          onClick={toggleDropdown}
+        >
           <label tabIndex={0} className="btn btn-ghost btn-circle">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +46,12 @@ export default function Header() {
                 </a>
               </li>
               <li>
-                <a className="text-lg" onClick={() => {window.location.assign("./about")}}>
+                <a
+                  className="text-lg"
+                  onClick={() => {
+                    window.location.assign("./about");
+                  }}
+                >
                   About
                 </a>
               </li>

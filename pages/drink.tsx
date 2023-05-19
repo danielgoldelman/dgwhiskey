@@ -22,10 +22,12 @@ export default function DrinkPage() {
   const [taste, setTaste] = useState<Taste>();
   const [linger, setLinger] = useState<Linger>();
 
-  const selectedDrink = async (id: string) => {
+  const selectedDrink = async (name: string) => {
     var drink = defaultDrink;
     for (var i = 0; i < GimmeDrinks.length; i++) {
-      if (GimmeDrinks[i]["drink"]["id"] === id) {
+      if (
+        GimmeDrinks[i]["drink"]["name"].toLowerCase().replaceAll(" ", "") === name
+      ) {
         drink = GimmeDrinks[i]["drink"] as ReviewedDrink;
         break;
       }
@@ -37,7 +39,7 @@ export default function DrinkPage() {
     setLinger(drink.fullTasting.linger);
   };
 
-  const reqIDnull = useSearchParams().get("id");
+  const reqIDnull = useSearchParams().get("name");
 
   useEffect(() => {
     reqIDnull ? selectedDrink(reqIDnull) : selectedDrink("");

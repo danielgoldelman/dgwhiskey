@@ -40,7 +40,6 @@ export interface FullTasting {
  * ReviewedDrink: interface for a fully reviewed drink (with full tasting)
  */
 export interface ReviewedDrink {
-    id: string
     name: string
     maker: string
     ownedBy: string
@@ -56,7 +55,6 @@ export interface ReviewedDrink {
  * NotReviewedDrink: interface for a non reviewed drink (review incoming)
  */
 export interface NotReviewedDrink {
-    id: string
     name: string
     maker: string
     ownedBy: string
