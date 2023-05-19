@@ -108,7 +108,7 @@ function SearchBarFiltersSort({
         )}
       </div>
       <select
-        className="select w-full max-w-xs lg:col-span-1 col-span-3"
+        className="select w-full max-w-xs lg:col-span-1 col-span-3 bg-gray-800"
         onChange={onChangeSortBy}
         defaultValue={"sort"}
       >
