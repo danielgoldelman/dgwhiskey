@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
@@ -10,11 +9,15 @@ import {
   Linger,
 } from "../public/static/interfaces";
 import GimmeDrinks from "../public/static/hold.json";
+
 import { defaultDrink } from "../components/statics";
+
+import Header from "@/components/header";
 import DrinkMain from "@/components/drink/singleDrink";
 
 export default function DrinkPage() {
   const [singleDrink, setSingleDrink] = useState<ReviewedDrink>();
+  const [overview, setOverview] = useState<string>("");
   const [look, setLook] = useState<Look>();
   const [taste, setTaste] = useState<Taste>();
   const [linger, setLinger] = useState<Linger>();
@@ -28,6 +31,7 @@ export default function DrinkPage() {
       }
     }
     setSingleDrink(drink);
+    setOverview(drink.fullTasting.overview);
     setLook(drink.fullTasting.look);
     setTaste(drink.fullTasting.taste);
     setLinger(drink.fullTasting.linger);
@@ -38,6 +42,7 @@ export default function DrinkPage() {
   useEffect(() => {
     reqIDnull ? selectedDrink(reqIDnull) : selectedDrink("");
   }, [reqIDnull]);
+
   return (
     <>
       <Head>
@@ -47,21 +52,19 @@ export default function DrinkPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="text-white flex flex-col h-screen">
-        <header className="sticky z-50 top-0 inset-x-0 border-b border-gray-200 shadow-lg p-5 bg-[#0d1117] grid grid-cols-7">
-          <div className="relative left-[7%] sm:left-[5%] xl:left-[3%] text-3xl col-span-6">
-            {"DG \xa0 Whisk(e)y"}
-          </div>
-          <button
-            className="rounded-2xl text-base sm:text-xl bg-gray-500 text-center cursor-pointer col-span-1"
-            onClick={() => window.location.assign("./")}
-          >
-            Back
-          </button>
-        </header>
-        <main className="flex-grow h-full bg-gradient-to-b from-black to-orange-400 bg-auto justify-center flex overflow-y-auto relative">
-          <div className="">
-            <DrinkMain />
-          </div>
+        <Header />
+        <main className="h-full bg-gradient-to-b from-black to-orange-400 bg-auto justify-center flex overflow-y-auto relative">
+          {singleDrink && overview && look && taste && linger ? (
+            <DrinkMain
+              singleDrink={singleDrink}
+              overview={overview}
+              look={look}
+              taste={taste}
+              linger={linger}
+            />
+          ) : (
+            <></>
+          )}
         </main>
       </div>
     </>

@@ -47,7 +47,7 @@ export default function AllDrinks() {
 
   // numbers for min/max price, min/max abv
   const [minP, setMinP] = useState<number>(0);
-  const [maxP, setMaxP] = useState<number>(100);
+  const [maxP, setMaxP] = useState<number>(200);
   const [minA, setMinA] = useState<number>(0);
   const [maxA, setMaxA] = useState<number>(60);
 
@@ -179,28 +179,20 @@ export default function AllDrinks() {
   }
 
   // verify that all drinks shown to user are valid based on price input choices
-  if (minP) {
-    showDrinks = showDrinks.filter((d) => {
-      return d.drink.price >= minP;
-    });
-  }
-  if (maxP) {
-    showDrinks = showDrinks.filter((d) => {
-      return d.drink.price < maxP;
-    });
-  }
-
+  showDrinks = showDrinks.filter((d) => {
+    return d.drink.price >= minP;
+  });
+  showDrinks = showDrinks.filter((d) => {
+    return d.drink.price < maxP;
+  });
+  
   // verify that all drinks shown to user are valid based on abv input choices
-  if (minA) {
-    showDrinks = showDrinks.filter((d) => {
-      return d.drink.price >= minA;
-    });
-  }
-  if (maxA) {
-    showDrinks = showDrinks.filter((d) => {
-      return d.drink.price < maxA;
-    });
-  }
+  showDrinks = showDrinks.filter((d) => {
+    return d.drink.abv >= minA;
+  });
+  showDrinks = showDrinks.filter((d) => {
+    return d.drink.abv < maxA;
+  });
 
   const originList = [
     [americanB, origins.american, setAmericanB],
@@ -283,6 +275,7 @@ export default function AllDrinks() {
       <div className="pt-5"></div>
       <NameAbvCostLine />
       <ShowAllDrinks showDrinks={showDrinks} />
+      <div className="pt-5"></div>
     </div>
   );
 }
