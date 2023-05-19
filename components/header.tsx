@@ -43,7 +43,7 @@ export default function Header() {
                 </a>
               </li>
               <li>
-                <a className="text-lg" onClick={() => {}}>
+                <a className="text-lg" onClick={() => {window.location.assign("./about")}}>
                   About
                 </a>
               </li>
