@@ -13,7 +13,7 @@ export default function About() {
           content="Expert reviews of decisive whiskeys"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/static/whiskeyGlass.svg" />
       </Head>
       <div className="text-white flex flex-col h-screen">
         <Header />
