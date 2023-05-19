@@ -32,7 +32,7 @@ export default function Header() {
           {isOpen ? (
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-1 p-2 shadow bg-base-300 rounded-box w-36 bg-gray-800"
+              className="menu menu-compact dropdown-content mt-1 p-2 shadow rounded-box w-36 bg-gray-800"
             >
               <li>
                 <a
