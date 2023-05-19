@@ -1,4 +1,5 @@
 import { Linger, Look, ReviewedDrink, Taste } from "@/public/static/interfaces";
+import { useEffect } from "react";
 
 interface SingleDrinkPage {
   singleDrink: ReviewedDrink;
@@ -15,6 +16,34 @@ export default function DrinkMain({
   taste,
   linger,
 }: SingleDrinkPage) {
+
+  useEffect(() => {
+    let image: HTMLImageElement;
+
+    const preloadSvg = async () => {
+      try {
+        const response = await fetch("../../public/images/" + singleDrink.name.toLocaleLowerCase().replaceAll(" ", "") +".jpg");
+        if (response.ok) {
+          const blob = await response.blob();
+          const url = URL.createObjectURL(blob);
+          image = new Image();
+          image.src = url;
+        }
+      } catch (error) {
+        console.error('Failed to preload SVG:', error);
+      }
+    };
+
+    preloadSvg();
+
+    return () => {
+      if (image) {
+        URL.revokeObjectURL(image.src);
+      }
+    };
+  }, []);
+
+
   return (
     <div>
       <div className="grid grid-cols-11 py-8 sm:py-14">
