@@ -83,9 +83,19 @@ export default function AboutContent() {
             alt="personal website button"
             width={35}
             height={80}
-            className="mx-4 cursor-pointer"
+            className="cursor-pointer ml-4 mr-2"
             onClick={() =>
               window.open("https://www.danielgoldelman.dev/", "_blank")
+            }
+          />
+          <ImageNext
+            src="/static/github-mark-white.svg"
+            alt="github logo"
+            width={80}
+            height={20}
+            className="cursor-pointer p-3"
+            onClick={() =>
+              window.open("https://github.com/danielgoldelman", "_blank")
             }
           />
         </div>
