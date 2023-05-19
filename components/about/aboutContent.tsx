@@ -43,6 +43,7 @@ export default function AboutContent() {
             alt="linkedin button"
             width={80}
             height={80}
+            className="cursor-pointer"
             onClick={() =>
               window.open(
                 "https://www.linkedin.com/in/daniel-goldelman/",
@@ -55,7 +56,7 @@ export default function AboutContent() {
             alt="personal website button"
             width={35}
             height={80}
-            className="mx-4"
+            className="mx-4 cursor-pointer"
             onClick={() =>
               window.open("https://www.danielgoldelman.dev/", "_blank")
             }
