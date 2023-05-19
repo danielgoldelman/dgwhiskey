@@ -9,28 +9,33 @@ export default function AboutContent() {
           About
         </div>
         <div className="text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-3xl pb-10">
-          <div className="w-3/5 mx-auto sm:w-1/2 sm:float-right sm:ml-5 mb-5 max-w-[485px] max-h-[650px]">
-            <img
-              src="/static/portrait.jpg"
-              alt="Photo of the creator"
-              className=""
-            />
+          <div className="2xl:grid 2xl:grid-cols-2 2xl:place-items-center">
+            <div className="w-3/5 mx-auto sm:w-1/2 sm:float-right sm:ml-5 mb-5 max-w-[460px] 2xl:order-2 2xl:w-full 2xl:float-none">
+              <img
+                src="/static/portrait.jpg"
+                alt="Photo of the creator"
+                className="mx-auto"
+              />
+            </div>
+            <div>
+              <p>
+                Hello! My name is Daniel Goldelman, and I am a Masters student
+                studying Computer Science at Wesleyan University.
+              </p>
+              <br />
+              <p>
+                I have been an avid whiskey enthusiast for a few years, and am
+                finally ready to share my (kinda) educated takes on the whiskeys
+                I am exploring as I go. Please do not take anything here too
+                seriously, since I&apos;m not either. This website is and always
+                will be a work in progress, and is a small token of my
+                appreciation for whiskey&apos;s long history, the many
+                distilleries around the globe that make this glorious necter,
+                and the many friends and family I have been honored to share a
+                drink with.
+              </p>
+            </div>
           </div>
-          <p>
-            Hello! My name is Daniel Goldelman, and I am a Masters student
-            studying Computer Science at Wesleyan University.
-          </p>
-          <br />
-          <p>
-            I have been an avid whiskey enthusiast for a few years, and am
-            finally ready to share my (kinda) educated takes on the whiskeys I
-            am exploring as I go. Please do not take anything here too
-            seriously, since I&apos;m not either. This website is and always will be
-            a work in progress, and is a small token of my appreciation for
-            whiskey&apos;s long history, the many distilleries around the globe that
-            make this glorious necter, and the many friends and family I have
-            been honored to share a drink with.
-          </p>
         </div>
         <div className="flex justify-center">
           <Image
