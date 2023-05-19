@@ -1,4 +1,4 @@
-import { FC, SetStateAction } from "react";
+import { SetStateAction } from "react";
 
 interface TypesGroup {
   bool: boolean;
@@ -15,7 +15,7 @@ interface TypesProps {
 
  * @returns tsx component
  */
-const TypesFilter: FC<TypesProps> = ({ types }: TypesProps) => {
+function TypesFilter({ types }: TypesProps) {
   /**
    * typeButtons: takes in whether or not the button is on, then returns the related css
    * @param b boolean of whether or not the button is on
@@ -54,7 +54,7 @@ const TypesFilter: FC<TypesProps> = ({ types }: TypesProps) => {
       })}
     </div>
   );
-};
+}
 
 export { TypesFilter };
 export type { TypesGroup };

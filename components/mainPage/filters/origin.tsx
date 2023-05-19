@@ -1,4 +1,4 @@
-import { FC, SetStateAction } from "react";
+import { SetStateAction } from "react";
 
 interface OriginGroup {
   bool: boolean;
@@ -15,7 +15,7 @@ interface OriginProps {
 
  * @returns tsx component
  */
-const OriginFilter: FC<OriginProps> = ({ origins }: OriginProps) => {
+function OriginFilter({ origins }: OriginProps) {
   /**
    * originButtons: takes in whether or not the button is on, then returns the related css
    * @param b boolean of whether or not the button is on
@@ -54,7 +54,7 @@ const OriginFilter: FC<OriginProps> = ({ origins }: OriginProps) => {
       })}
     </div>
   );
-};
+}
 
 export { OriginFilter };
 export type { OriginGroup };

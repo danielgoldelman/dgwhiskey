@@ -1,4 +1,4 @@
-import { FC, SetStateAction, useState } from "react";
+import { SetStateAction, useState } from "react";
 
 interface SearchProps {
   searchInput: string;
@@ -30,7 +30,7 @@ interface SearchProps {
  * @param setSortBy set sort by string (useState 2/2)
  * @returns tsx component
  */
-const SearchBarFiltersSort: FC<SearchProps> = ({
+function SearchBarFiltersSort({
   searchInput,
   setSearchInput,
   showOrigins,
@@ -42,7 +42,7 @@ const SearchBarFiltersSort: FC<SearchProps> = ({
   showAbv,
   setShowAbv,
   setSortBy,
-}: SearchProps) => {
+}: SearchProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -76,26 +76,36 @@ const SearchBarFiltersSort: FC<SearchProps> = ({
         </form>
       </div>
       <div className="dropdown dropdown-bottom col-span-3 lg:col-span-1">
-        <label tabIndex={0} className="btn w-full bg-gray-800" onClick={toggleDropdown}>
+        <label
+          tabIndex={0}
+          className="btn w-full bg-gray-800"
+          onClick={toggleDropdown}
+        >
           Filters
         </label>
-        {isOpen?<ul
-          tabIndex={0}
-          className="dropdown-content menu p-2 shadow bg-gray-800 rounded-box w-52 mt-2"
-        >
-          <li>
-            <button onClick={() => setShowOrigins(!showOrigins)}>Origin</button>
-          </li>
-          <li>
-            <button onClick={() => setShowTypes(!showTypes)}>Types</button>
-          </li>
-          <li>
-            <button onClick={() => setShowPrice(!showPrice)}>Price</button>
-          </li>
-          <li>
-            <button onClick={() => setShowAbv(!showAbv)}>Abv</button>
-          </li>
-        </ul>:<></>}
+        {isOpen ? (
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu p-2 shadow bg-gray-800 rounded-box w-52 mt-2"
+          >
+            <li>
+              <button onClick={() => setShowOrigins(!showOrigins)}>
+                Origin
+              </button>
+            </li>
+            <li>
+              <button onClick={() => setShowTypes(!showTypes)}>Types</button>
+            </li>
+            <li>
+              <button onClick={() => setShowPrice(!showPrice)}>Price</button>
+            </li>
+            <li>
+              <button onClick={() => setShowAbv(!showAbv)}>Abv</button>
+            </li>
+          </ul>
+        ) : (
+          <></>
+        )}
       </div>
       <select
         className="select w-full max-w-xs lg:col-span-1 col-span-3"
@@ -113,6 +123,6 @@ const SearchBarFiltersSort: FC<SearchProps> = ({
       </select>
     </div>
   );
-};
+}
 
 export default SearchBarFiltersSort;

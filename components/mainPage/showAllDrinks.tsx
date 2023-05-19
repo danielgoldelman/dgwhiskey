@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Drink } from "../../public/static/interfaces";
-import { FC } from "react";
 
 interface MultDrinks {
   showDrinks: Drink[];
@@ -11,7 +10,7 @@ interface MultDrinks {
  * @param showDrinks
  * @returns tsx component
  */
-export const ShowAllDrinks: FC<MultDrinks> = ({ showDrinks }: MultDrinks) => {
+export default function ShowAllDrinks({ showDrinks }: MultDrinks) {
   return (
     <>
       {showDrinks.map(
@@ -96,6 +95,4 @@ export const ShowAllDrinks: FC<MultDrinks> = ({ showDrinks }: MultDrinks) => {
       )}
     </>
   );
-};
-
-export default ShowAllDrinks;
+}

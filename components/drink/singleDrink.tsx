@@ -77,7 +77,7 @@ export default function DrinkMain({
         </div>
       </div>
       {/* div is here to ensure that the content has space below. */}
-      <div></div>
+      <div />
     </div>
   );
 }

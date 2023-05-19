@@ -1,4 +1,4 @@
-import { FC, SetStateAction, useState } from "react";
+import { SetStateAction, useState } from "react";
 
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
@@ -15,7 +15,7 @@ interface AbvProps {
  * @param handleChangeFilterInput handler for adjusting filter input
  * @returns tsx component
  */
-const Abv: FC<AbvProps> = ({ minA, maxA, setMinA, setMaxA }: AbvProps) => {
+function Abv({ minA, maxA, setMinA, setMaxA }: AbvProps) {
   const [values, setValues] = useState<[number, number]>([minA, maxA]);
 
   const handleValuesChange = (newValues: number | number[]) => {
@@ -35,7 +35,7 @@ const Abv: FC<AbvProps> = ({ minA, maxA, setMinA, setMaxA }: AbvProps) => {
         <div className="place-self-center">{minA}</div>
         <div className="self-center col-span-7">
           <Slider
-            min={0}
+            min={30}
             max={60}
             value={values}
             onChange={handleValuesChange}
@@ -52,6 +52,6 @@ const Abv: FC<AbvProps> = ({ minA, maxA, setMinA, setMaxA }: AbvProps) => {
       </div>
     </div>
   );
-};
+}
 
 export default Abv;
