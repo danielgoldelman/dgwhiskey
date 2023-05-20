@@ -1,4 +1,4 @@
-import { Linger, Look, ReviewedDrink, Taste } from "@/public/static/interfaces";
+import { Linger, Look, ReviewedDrink, Taste } from "@/components/interfaces";
 import { useEffect } from "react";
 
 interface SingleDrinkPage {
@@ -16,13 +16,16 @@ export default function DrinkMain({
   taste,
   linger,
 }: SingleDrinkPage) {
-
   useEffect(() => {
     let image: HTMLImageElement;
 
     const preloadSvg = async () => {
       try {
-        const response = await fetch("../../public/images/" + singleDrink.name.toLocaleLowerCase().replaceAll(" ", "") +".jpg");
+        const response = await fetch(
+          "../../public/images/whiskeys/" +
+            singleDrink.name.toLocaleLowerCase().replaceAll(" ", "") +
+            ".jpg"
+        );
         if (response.ok) {
           const blob = await response.blob();
           const url = URL.createObjectURL(blob);
@@ -30,7 +33,7 @@ export default function DrinkMain({
           image.src = url;
         }
       } catch (error) {
-        console.error('Failed to preload SVG:', error);
+        console.error("Failed to preload SVG:", error);
       }
     };
 
@@ -42,7 +45,6 @@ export default function DrinkMain({
       }
     };
   }, []);
-
 
   return (
     <div>

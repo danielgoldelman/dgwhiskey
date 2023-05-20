@@ -13,7 +13,7 @@ export default function Home() {
           content="Expert reviews of decisive whiskeys"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/static/whiskeyGlass.svg" />
+        <link rel="icon" href="/svgs/whiskeyGlass.svg" />
       </Head>
       <div className="text-white flex flex-col h-screen">
         <Header />

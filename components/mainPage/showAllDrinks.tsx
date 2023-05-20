@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Drink } from "../../public/static/interfaces";
+import { Drink } from "../interfaces";
 
 interface MultDrinks {
   showDrinks: Drink[];
@@ -15,16 +15,7 @@ export default function ShowAllDrinks({ showDrinks }: MultDrinks) {
     <>
       {showDrinks.map(
         ({
-          drink: {
-            name,
-            origin,
-            maker,
-            ownedBy,
-            type,
-            price,
-            abv,
-            reviewed,
-          },
+          drink: { name, origin, maker, ownedBy, type, price, abv, reviewed },
         }) => {
           return reviewed ? (
             <div className="collapse rounded-2xl text-l sm:text-xl md:text-2xl xl:text-3xl bg-[#0d1117] my-5">

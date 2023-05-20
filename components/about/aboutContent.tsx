@@ -39,7 +39,7 @@ export default function AboutContent() {
           <div className="2xl:grid 2xl:grid-cols-2 2xl:place-items-center">
             <div className="w-3/5 mx-auto sm:w-1/2 sm:float-right sm:ml-5 mb-5 max-w-[460px] 2xl:order-2 2xl:w-full 2xl:float-none">
               <img
-                src="/static/portrait.jpg"
+                src="/images/portrait.jpg"
                 alt="Photo of the creator"
                 className="mx-auto"
               />
@@ -66,7 +66,7 @@ export default function AboutContent() {
         </div>
         <div className="flex justify-center">
           <ImageNext
-            src="/static/linkedin.svg"
+            src="/svgs/linkedin.svg"
             alt="linkedin button"
             width={80}
             height={80}
@@ -79,7 +79,7 @@ export default function AboutContent() {
             }
           />
           <ImageNext
-            src="/static/MiniMe.svg"
+            src="/svgs/MiniMe.svg"
             alt="personal website button"
             width={35}
             height={80}
@@ -89,7 +89,7 @@ export default function AboutContent() {
             }
           />
           <ImageNext
-            src="/static/github-mark-white.svg"
+            src="/svgs/github-mark-white.svg"
             alt="github logo"
             width={80}
             height={20}

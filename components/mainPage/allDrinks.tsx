@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-import { Drink } from "@/public/static/interfaces";
-import GimmeDrinks from "@/public/static/hold.json";
+import { Drink } from "@/components/interfaces";
+import GimmeDrinks from "@/public/jsons/hold.json";
 
 import SearchBarFiltersSort from "./filters/searchBarFiltersSort";
 import { OriginFilter, OriginGroup } from "./filters/origin";
