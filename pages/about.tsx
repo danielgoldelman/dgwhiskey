@@ -1,22 +1,13 @@
-import Head from "next/head";
-
-import Header from "@/components/header";
+import Header from "@/components/shared/head";
+import Navbar from "@/components/shared/navbar";
 import AboutContent from "@/components/about/aboutContent";
 
 export default function About() {
   return (
     <>
-      <Head>
-        <title>Whiskey</title>
-        <meta
-          name="description"
-          content="Expert reviews of decisive whiskeys"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/svgs/whiskeyGlass.svg" />
-      </Head>
+      <Header />
       <div className="text-white flex flex-col h-screen">
-        <Header />
+        <Navbar />
         <main className="h-full bg-gradient-to-b from-black to-orange-400 bg-auto justify-center flex overflow-y-auto relative">
           <AboutContent />
         </main>

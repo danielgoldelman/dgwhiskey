@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Header() {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
