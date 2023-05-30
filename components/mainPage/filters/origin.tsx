@@ -31,23 +31,16 @@ function OriginFilter({ origins }: OriginProps) {
   return (
     <div className="grid grid-cols-3 md:grid-cols-6 gap-2 pt-5">
       {origins.map((element: OriginGroup) => {
+        var addCSS = "";
         if (element.str == "American" || element.str == "Japanese") {
-          return (
-            <input
-              key={element.str}
-              type="button"
-              value={element.str}
-              className={originButtons(element.bool) + " md:col-start-2"}
-              onClick={() => element.fun(!element.bool)}
-            />
-          );
+          addCSS = " md:col-start-2";
         }
         return (
           <input
             key={element.str}
             type="button"
             value={element.str}
-            className={originButtons(element.bool)}
+            className={originButtons(element.bool) + addCSS}
             onClick={() => element.fun(!element.bool)}
           />
         );

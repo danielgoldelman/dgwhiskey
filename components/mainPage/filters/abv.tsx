@@ -18,6 +18,13 @@ interface AbvProps {
 function Abv({ minA, maxA, setMinA, setMaxA }: AbvProps) {
   const [values, setValues] = useState<[number, number]>([minA, maxA]);
 
+  /**
+   * This function updates state values based on the input, which can be a single number or an array of
+   * numbers.
+   * @param {number | number[]} newValues - The parameter `newValues` is of type `number | number[]`,
+   * which means it can either be a single number or an array of numbers. It is used as an argument for
+   * the `handleValuesChange` function.
+   */
   const handleValuesChange = (newValues: number | number[]) => {
     if (Array.isArray(newValues)) {
       setValues(newValues as [number, number]);

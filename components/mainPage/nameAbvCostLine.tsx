@@ -1,6 +1,8 @@
 /**
- * NameAbvCostLine: Component for top of the list of drinks explaining the three columns
- * @returns tsx component
+ * This function returns a styled component that displays the headers for a table of whiskey names, ABV,
+ * and cost.
+ * @returns A React component that renders a div containing three child divs, each with a specific
+ * class and content ("Name", "ABV", and "Cost"). The component is also given a unique key prop.
  */
 function NameAbvCostLine() {
   return (

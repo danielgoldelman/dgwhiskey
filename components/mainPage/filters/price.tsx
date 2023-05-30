@@ -17,6 +17,11 @@ interface PriceProps {
 function Price({ minP, maxP, setMinP, setMaxP }: PriceProps) {
   const [values, setValues] = useState<[number, number]>([minP, maxP]);
 
+  /**
+   * This function sets the minimum and maximum values of a range based on the new values passed in.
+   * @param {number | number[]} newValues - The parameter `newValues` is either a single number or an
+   * array of two numbers. It is used as an argument for the `handleValuesChange` function.
+   */
   const handleValuesChange = (newValues: number | number[]) => {
     if (Array.isArray(newValues)) {
       setValues(newValues as [number, number]);

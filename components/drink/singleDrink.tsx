@@ -16,9 +16,19 @@ export default function DrinkMain({
   taste,
   linger,
 }: SingleDrinkPage) {
+  
+  /* This `useEffect` hook is preloading an image file for a specific drink using its name. It fetches
+  the image file using the `fetch` API and creates a blob URL for the image using
+  `URL.createObjectURL`. It then creates a new `Image` object and sets its `src` property to the
+  blob URL. Finally, it returns a cleanup function that revokes the blob URL using
+  `URL.revokeObjectURL` to free up memory. The empty dependency array `[]` ensures that this effect
+  only runs once when the component mounts. */
   useEffect(() => {
     let image: HTMLImageElement;
 
+    /**
+     * This function preloads an image file for a specific drink using its name.
+     */
     const preloadSvg = async () => {
       try {
         const response = await fetch(
@@ -44,7 +54,7 @@ export default function DrinkMain({
         URL.revokeObjectURL(image.src);
       }
     };
-  }, []);
+  });
 
   return (
     <div>
@@ -93,7 +103,7 @@ export default function DrinkMain({
             </div>
             <img
               src={
-                "images/" +
+                "images/whiskeys/" +
                 singleDrink.name.toLocaleLowerCase().replaceAll(" ", "") +
                 ".jpg"
               }

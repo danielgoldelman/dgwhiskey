@@ -2,6 +2,13 @@ import ImageNext from "next/image";
 import { useEffect } from "react";
 
 export default function AboutContent() {
+  /* The `useEffect` hook is being used to preload an image file (`portrait.jpg`) before it is
+  displayed on the page. The function inside `useEffect` creates an `image` variable and defines a
+  `preloadSvg` function that fetches the image file, creates a blob URL for it, and sets the `src`
+  attribute of the `image` variable to the URL. The `useEffect` hook is called with an empty
+  dependency array, which means it will only run once when the component mounts. The `return`
+  statement inside `useEffect` defines a cleanup function that revokes the blob URL created for the
+  image, which helps to free up memory. */
   useEffect(() => {
     let image: HTMLImageElement;
 
