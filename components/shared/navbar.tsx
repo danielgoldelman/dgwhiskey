@@ -1,11 +1,51 @@
 import { useState } from "react";
+import { types } from "../statics";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleDropdown = () => {
+  function toggleDropdown() {
     setIsOpen(!isOpen);
-  };
+  }
+
+  interface TypeSingleInterface {
+    type: string;
+  }
+
+  function TypeSingle({ type }: TypeSingleInterface) {
+    return (
+      <li>
+        <Link
+          href={{
+            pathname: "./type",
+            query: {
+              type: type,
+            },
+          }}
+        >
+          <div className="text-lg">{type}</div>
+        </Link>
+      </li>
+    );
+  }
+
+  function TypesSubmenu() {
+    return (
+      <ul
+        tabIndex={0}
+        className="dropdown-content dropdown-left mt-1 p-2 shadow rounded-box w-36 bg-gray-800"
+        style={{ left: "-105%" }}
+      >
+        <TypeSingle type={types.bourbon.str} />
+        <TypeSingle type={types.rye.str} />
+        <TypeSingle type={types.tennessee.str} />
+        <TypeSingle type={types.singleMalt.str} />
+        <TypeSingle type={types.singlePot.str} />
+        <TypeSingle type={types.blended.str} />
+      </ul>
+    );
+  }
 
   return (
     <header className="navbar sticky z-50 top-0 border-b border-gray-200 shadow-lg py-5 bg-[#0d1117]">
@@ -35,23 +75,19 @@ export default function Navbar() {
           {isOpen ? (
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-1 p-2 shadow rounded-box w-36 bg-gray-800"
+              className="menu menu-compact dropdown-content mt-1 p-2 shadow rounded-box w-36 bg-gray-800 dropdown-left"
             >
               <li>
-                <a
-                  className="text-lg"
-                  onClick={() => window.location.assign("./")}
-                >
+                <a className="text-lg" href="./">
                   Homepage
                 </a>
               </li>
+              <li className="submenu">
+                <span className="text-lg">Types</span>
+                  <TypesSubmenu />
+              </li>
               <li>
-                <a
-                  className="text-lg"
-                  onClick={() => {
-                    window.location.assign("./about");
-                  }}
-                >
+                <a className="text-lg" href="./about">
                   About
                 </a>
               </li>

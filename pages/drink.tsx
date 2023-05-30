@@ -17,7 +17,11 @@ export default function DrinkPage() {
   const [taste, setTaste] = useState<Taste>();
   const [linger, setLinger] = useState<Linger>();
 
-  const selectedDrink = async (name: string) => {
+  /**
+   * This function selects a drink from a list of drinks and sets its properties as state variables.
+   * @param {string} name - a string representing the name of a drink that the user has selected.
+   */
+  async function selectedDrink(name: string) {
     var drink = defaultDrink;
     for (var i = 0; i < GimmeDrinks.length; i++) {
       if (
@@ -33,7 +37,7 @@ export default function DrinkPage() {
     setLook(drink.fullTasting.look);
     setTaste(drink.fullTasting.taste);
     setLinger(drink.fullTasting.linger);
-  };
+  }
 
   const reqIDnull = useSearchParams().get("name");
 

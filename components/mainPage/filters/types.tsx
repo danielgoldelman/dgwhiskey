@@ -16,11 +16,6 @@ interface TypesProps {
  * @returns tsx component
  */
 function TypesFilter({ types }: TypesProps) {
-  /**
-   * typeButtons: takes in whether or not the button is on, then returns the related css
-   * @param b boolean of whether or not the button is on
-   * @returns string of the css relative to the button having been clicked
-   */
   function typeButtons(b: boolean): string {
     if (!b) {
       return "p-2 border-2 rounded-lg border-black bg-gray-800 col-span-1 cursor-pointer text-center";
@@ -31,23 +26,16 @@ function TypesFilter({ types }: TypesProps) {
   return (
     <div className="grid grid-cols-3 md:grid-cols-5 gap-2 pt-5">
       {types.map((element: TypesGroup) => {
+        var addCSS = "";
         if (element.str == "Bourbon" || element.str == "Single Pot") {
-          return (
-            <input
-              key={element.str}
-              type="button"
-              value={element.str}
-              className={typeButtons(element.bool) + " md:col-start-2"}
-              onClick={() => element.fun(!element.bool)}
-            />
-          );
+          addCSS = " md:col-start-2";
         }
         return (
           <input
             key={element.str}
             type="button"
             value={element.str}
-            className={typeButtons(element.bool)}
+            className={typeButtons(element.bool) + addCSS}
             onClick={() => element.fun(!element.bool)}
           />
         );

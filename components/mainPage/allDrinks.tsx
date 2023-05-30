@@ -14,6 +14,10 @@ import ShowAllDrinks from "./showAllDrinks";
 
 import { origins, types } from "../statics";
 
+/**
+ * This is a React component that displays a list of drinks and allows the user to filter and sort them
+ * based on various criteria.
+ */
 export default function AllDrinks() {
   // All drinks in database
   const [allDrinks, setAllDrinks] = useState<Drink[]>([]);
@@ -71,6 +75,18 @@ export default function AllDrinks() {
     getDrinks();
   }, []);
 
+  /**
+   * This function sorts an array of drinks based on a user's choice of sorting criteria.
+   * @param {Drink[]} showDrinks - an array of Drink objects that we want to sort based on the chosen
+   * criteria.
+   * @param {string} choice - The parameter "choice" is a string that determines how the "showDrinks"
+   * array should be sorted. It can take on the values "name", "pricelh", "pricehl", "abvlh", or
+   * "abvhl". Depending on the value of "choice",
+   * @returns The function `sortByFun` returns an array of `Drink` objects sorted based on the `choice`
+   * parameter. If `choice` is "name", the array is sorted by drink name in ascending order. If
+   * `choice` is "pricelh", the array is sorted by drink price in ascending order. If `choice` is
+   * "pricehl", the array is sorted by drink price
+   */
   function sortByFun(showDrinks: Drink[], choice: string): Drink[] {
     switch (choice) {
       case "name":
@@ -104,7 +120,11 @@ export default function AllDrinks() {
     });
   }
 
-  // verify that all drinks shown to user are valid based on origin buttons choices
+  /* This code block is filtering the drinks to be shown based on the user's selected origin
+  preferences. Each if statement checks if the corresponding boolean variable (e.g. `americanB`) is
+  false, indicating that the user does not want to see drinks from that origin. If the boolean is
+  false, the `showDrinks` array is filtered to remove any drinks with that origin. This is done for
+  all possible origin options. */
   if (!americanB) {
     showDrinks = showDrinks.filter((d) => {
       return d.drink.origin !== origins.american;
@@ -146,39 +166,46 @@ export default function AllDrinks() {
     });
   }
 
-  // verify that all drinks shown to user are valid based on types buttons choices
+  /* This code block is filtering the drinks to be shown based on the user's selected type preferences.
+  Each if statement checks if the corresponding boolean variable (e.g. `bourbonB`) is false,
+  indicating that the user does not want to see drinks of that type. If the boolean is false, the
+  `showDrinks` array is filtered to remove any drinks with that type. This is done for all possible
+  type options. */
   if (!bourbonB) {
     showDrinks = showDrinks.filter((d) => {
-      return d.drink.type !== types.bourbon;
+      return d.drink.type !== types.bourbon.str;
     });
   }
   if (!ryeB) {
     showDrinks = showDrinks.filter((d) => {
-      return d.drink.type !== types.rye;
+      return d.drink.type !== types.rye.str;
     });
   }
   if (!tennesseeB) {
     showDrinks = showDrinks.filter((d) => {
-      return d.drink.type !== types.tennessee;
+      return d.drink.type !== types.tennessee.str;
     });
   }
   if (!singlePotB) {
     showDrinks = showDrinks.filter((d) => {
-      return d.drink.type !== types.singlePot;
+      return d.drink.type !== types.singlePot.str;
     });
   }
   if (!singleMaltB) {
     showDrinks = showDrinks.filter((d) => {
-      return d.drink.type !== types.singleMalt;
+      return d.drink.type !== types.singleMalt.str;
     });
   }
   if (!blendedB) {
     showDrinks = showDrinks.filter((d) => {
-      return d.drink.type !== types.blended;
+      return d.drink.type !== types.blended.str;
     });
   }
 
-  // verify that all drinks shown to user are valid based on price input choices
+  /* This code block is filtering the drinks to be shown based on the user's selected price range. The
+  `showDrinks` array is filtered to remove any drinks with a price less than the minimum price
+  (`minP`) and greater than or equal to the maximum price (`maxP`). This ensures that only drinks
+  within the user's selected price range are displayed. */
   showDrinks = showDrinks.filter((d) => {
     return d.drink.price >= minP;
   });
@@ -186,7 +213,10 @@ export default function AllDrinks() {
     return d.drink.price < maxP;
   });
 
-  // verify that all drinks shown to user are valid based on abv input choices
+  /* This code block is filtering the drinks to be shown based on the user's selected minimum and
+  maximum ABV (alcohol by volume) values. The `showDrinks` array is filtered to remove any drinks
+  with an ABV less than the minimum ABV (`minA`) and greater than or equal to the maximum ABV
+  (`maxA`). This ensures that only drinks within the user's selected ABV range are displayed. */
   showDrinks = showDrinks.filter((d) => {
     return d.drink.abv >= minA;
   });
@@ -213,12 +243,12 @@ export default function AllDrinks() {
   });
 
   const typesList = [
-    [bourbonB, types.bourbon, setBourbonB],
-    [ryeB, types.rye, setRyeB],
-    [tennesseeB, types.tennessee, setTennesseeB],
-    [singlePotB, types.singlePot, setSinglePotB],
-    [singleMaltB, types.singleMalt, setSingleMaltB],
-    [blendedB, types.blended, setBlendedB],
+    [bourbonB, types.bourbon.str, setBourbonB],
+    [ryeB, types.rye.str, setRyeB],
+    [tennesseeB, types.tennessee.str, setTennesseeB],
+    [singlePotB, types.singlePot.str, setSinglePotB],
+    [singleMaltB, types.singleMalt.str, setSingleMaltB],
+    [blendedB, types.blended.str, setBlendedB],
   ];
   const typesGroups = typesList.map((element: any[]) => {
     return {

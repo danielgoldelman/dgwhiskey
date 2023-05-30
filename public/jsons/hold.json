@@ -1,52 +1,6 @@
 [
     {
         "drink": {
-            "name": "Makers Mark 46",
-            "maker": "Makers Mark Distillery",
-            "ownedBy": "Beam Suntory",
-            "origin": "American",
-            "type": "Bourbon",
-            "price": 40,
-            "abv": 46,
-            "reviewed": true,
-            "fullTasting": {
-                "overview": "a",
-                "look": {
-                    "bottomColor": "Deep Amber",
-                    "topColor": "Golden",
-                    "extraColors": [
-                        "Honey"
-                    ],
-                    "viscosity": "Clingy"
-                },
-                "taste": {
-                    "shapeT": [
-                        "Front heavy",
-                        "top right/left",
-                        "line front",
-                        "middle soft",
-                        "tip of tounge"
-                    ],
-                    "bitternessT": "pin pricks, soft, breathy",
-                    "tasteT": "Woody, amber, honey, pine, small bit of chocolate",
-                    "tastingNotesT": "small sip, let it swirl. The flavor will come to you, you dont need to seek it out."
-                },
-                "linger": {
-                    "shapeL": [
-                        "Forward",
-                        "tip",
-                        "top left/right",
-                        "slight middle",
-                        "fuzzy back"
-                    ],
-                    "tasteL": "Wood, heavy, burn",
-                    "tastingNotesL": "Bitter chocolate, sharp cheese with peppercorns, grapes, something quick to clear the palate that does not overpower it to leave room for the next sip."
-                }
-            }
-        }
-    },
-    {
-        "drink": {
             "name": "Aberlour 12 Year",
             "maker": "Aberlour Distillery",
             "ownedBy": "Pernod Ricard",
@@ -56,7 +10,7 @@
             "abv": "40",
             "reviewed": true,
             "fullTasting": {
-                "overview": "a",
+                "overview": "Smooth and strong, sweet and spicy. This delicious whiskey is a perfect balance of endlessly deep and Smokey, and is one of my personal favorites. At a shockingly affordable price for the amazing mess of this textured delight, I have no bad comments to speak of. Beginners and aficionados alike will enjoy the tastes and feels of this amazing whiskey. Pair with meats or cheeses, sit back, and enjoy.",
                 "look": {
                     "bottomColor": "Amber",
                     "topColor": "Honey",
@@ -98,7 +52,7 @@
             "abv": 46,
             "reviewed": true,
             "fullTasting": {
-                "overview": "a",
+                "overview": "This is a surprisingly deep whiskey that has a distinct amber taste and strong bitterness that lasts on the tongue for a long while after your first taste. I found that the best way to enjoy this whiskey was to take small sips and swirl it around your mouth with the tongue, ensuring that your tongue is fully coated in the whiskey. There is no need to try and find the flavors; they will make themselves known. I enjoyed the amber, peachy, earthy flavors, all which feel deeper and deeper with each sip. I would reccomend either sweet foods like mango, grapes, apples, or chocolate, or deep foods like jerkey or pizza. This flavor will sit for a while if unaltered, so newer whiskey drinkers should have something nearby to cut the taste. More experienced whiskey drinkers could specifically enjoy a cigar.",
                 "look": {
                     "bottomColor": "Light Amber",
                     "topColor": "Water / Honey",
@@ -139,7 +93,7 @@
             "abv": 43,
             "reviewed": true,
             "fullTasting": {
-                "overview": "This whiskey has a very particular sour taste of some indistinguishable fruit, and is vastly different than most other whiskeys I have tried. It is an experience in itself, and thus I would not reccomend it for pairing with a meal. This is a very smooth whiskey with clear influence from the Mizinura barrels it has been aged in. I would reccomend this whiskey to an experienced drinker who wants to try something new or a group that is going to be tasting this whiskey with others to try and identify interesting characteristics in whiskeys they have not tried before.",
+                "overview": "This whiskey has a very particular sour taste of some indistinguishable fruit, and is vastly different from other whiskeys I have tried. It is an experience in itself, and thus I would not reccomend it for pairing with a meal. This is a very smooth whiskey with clear influence from the Mizinura barrels it has been aged in. I can't think of any foods that would specifically pair with this whiskey, so overpower the taste and then go in again. I would reccomend this whiskey to an experienced drinker who wants to try something new or a group that is going to be tasting this whiskey with others to try and identify interesting characteristics in whiskeys they have not tried before.",
                 "look": {
                     "bottomColor": "Water / Honey",
                     "topColor": "Water",
@@ -170,8 +124,96 @@
     },
     {
         "drink": {
+            "name": "Makers Mark 101",
+            "maker": "Makers Mark Distillery",
+            "ownedBy": "Beam Suntory",
+            "origin": "American",
+            "type": "Bourbon",
+            "price": 40,
+            "abv": 50.5,
+            "reviewed": true,
+            "fullTasting": {
+                "overview": "Very strong whiskey does not have to be very bitter whiskey. Yes, this does have a bitter streak, and yes, it will be too powerful for new drinkers. But is it gasoline with a little bit of caramel? Not at all. This is a shockingly deep and complex whiskey with the genius of Makers Mark at the prices you would expect from their distillery. This is a great choice if you want the experience of the Makers Mark you know and love, with an added little boost from the 101 proof that gives it its name.",
+                "look": {
+                    "bottomColor": "",
+                    "topColor": "",
+                    "extraColors": [
+                        ""
+                    ],
+                    "viscosity": ""
+                },
+                "taste": {
+                    "shapeT": [
+                        ""
+                    ],
+                    "bitternessT": "",
+                    "tasteT": "",
+                    "tastingNotesT": ""
+                },
+                "linger": {
+                    "shapeL": [
+                        ""
+                    ],
+                    "tasteL": "",
+                    "tastingNotesL": ""
+                }
+            }
+        }
+    },
+    {
+        "drink": {
+            "name": "Johnny Drum Private Stock",
+            "maker": "Willett Distillery",
+            "ownedBy": "Private",
+            "origin": "American",
+            "type": "Bourbon",
+            "price": 55,
+            "abv": 50.5,
+            "reviewed": true,
+            "fullTasting": {
+                "overview": "This whiskey is shockingly strong, but comes from the best whiskey distillery I have found. It is very bitter, attacking the tongue and forcing you through the experience it puts you through. Most tasting notes are of sour citrus and biting smoke, and will surely overpower any other tastes. I enjoy this whiskey with a heavy meat like steak or pork chops, due to the fact that it is able to truly reset your mouth with one sip. This is close to the quintessential strong whiskey, and thus is not well suited for beginners in the world of whiskey, but could be your new favorite very quickly. Willet Distillery in Bardstown KY produces the damn best whiskey, and I will back that against any in the world (at this price plus or minus 100$).",
+                "look": {
+                    "bottomColor": "",
+                    "topColor": "",
+                    "extraColors": [
+                        ""
+                    ],
+                    "viscosity": ""
+                },
+                "taste": {
+                    "shapeT": [
+                        ""
+                    ],
+                    "bitternessT": "",
+                    "tasteT": "",
+                    "tastingNotesT": ""
+                },
+                "linger": {
+                    "shapeL": [
+                        ""
+                    ],
+                    "tasteL": "",
+                    "tastingNotesL": ""
+                }
+            }
+        }
+    },
+    {
+        "drink": {
+            "name": "Makers Mark 46",
+            "maker": "Makers Mark Distillery",
+            "ownedBy": "Beam Suntory",
+            "origin": "American",
+            "type": "Bourbon",
+            "price": 40,
+            "abv": 46,
+            "reviewed": false
+        }
+    },
+    {
+        "drink": {
             "name": "Old Bardstown - Estate Bottled",
-            "maker": "Willet Distillery",
+            "maker": "Willett Distillery",
             "ownedBy": "Private",
             "origin": "American",
             "type": "Bourbon",
@@ -495,19 +537,6 @@
     },
     {
         "drink": {
-            "name": "Makers Mark 101",
-            "maker": "Makers Mark Distillery",
-            "ownedBy": "Beam Suntory",
-            "origin": "American",
-            "type": "Bourbon",
-            "price": 40,
-            "abv": 50.5,
-            "reviewed": false,
-            "fullTasting": null
-        }
-    },
-    {
-        "drink": {
             "name": "Old Forester Bourbon",
             "maker": "Old Forester Distilling Co.",
             "ownedBy": "Brown-Forman",
@@ -588,7 +617,7 @@
         "drink": {
             "name": "Willett 4 Year Rye",
             "maker": "Willett Distillery",
-            "ownedBy":"Private",
+            "ownedBy": "Private",
             "origin": "American",
             "type": "Rye",
             "price": 56,
