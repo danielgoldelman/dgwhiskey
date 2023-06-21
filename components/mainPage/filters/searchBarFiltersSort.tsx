@@ -62,7 +62,7 @@ function SearchBarFiltersSort({
 
   return (
     <div className="grid grid-cols-6 gap-5">
-      <div className="lg:col-span-4 col-span-full">
+      <div className="col-span-full lg:col-span-4">
         <form>
           <input
             key="search-bar"
@@ -108,7 +108,7 @@ function SearchBarFiltersSort({
         )}
       </div>
       <select
-        className="select w-full max-w-xs lg:col-span-1 col-span-3 bg-gray-800"
+        className="select col-span-3 lg:col-span-1 bg-gray-800"
         onChange={onChangeSortBy}
         defaultValue={"sort"}
       >
