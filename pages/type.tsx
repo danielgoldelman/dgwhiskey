@@ -5,10 +5,29 @@ import Header from "@/components/shared/head";
 import Navbar from "@/components/shared/navbar";
 import TypeMain from "@/components/type/typeContent";
 import { types } from "@/components/statics";
+import { Drink } from "@/components/interfaces";
+
+import GimmeDrinks from "@/public/jsons/hold.json";
 
 export default function DrinkPage() {
   const [type, setType] = useState<string>("");
   const [typeDescription, setTypeDescription] = useState<string>("");
+  // All drinks in database
+  const [allDrinksOfType, setAllDrinksOfType] = useState<Drink[]>([]);
+
+  /**
+   * getDrinks: get all drinks from json file and format as type Drink
+   */
+  function getDrinks(typ: string) {
+    var retDrinks = [];
+    for (var i = 0; i < GimmeDrinks.length; i++) {
+      let newDrink = GimmeDrinks[i] as Drink;
+      if (newDrink.drink.type == typ) {
+        retDrinks.push(newDrink);
+      }
+    }
+    setAllDrinksOfType(retDrinks);
+  }
 
   /**
    * This function sets the type information and description based on the input type string.
@@ -47,6 +66,7 @@ export default function DrinkPage() {
         break;
       }
     }
+    getDrinks(type)
   }
 
   const reqTypeNull = useSearchParams().get("type");
@@ -61,8 +81,8 @@ export default function DrinkPage() {
       <div className="text-white flex flex-col h-screen">
         <Navbar />
         <main className="h-full bg-gradient-to-b from-black to-orange-400 bg-auto justify-center flex overflow-y-auto relative">
-          {type && typeDescription ? (
-            <TypeMain type={type} typeDescription={typeDescription} />
+          {type && typeDescription && allDrinksOfType ? (
+            <TypeMain type={type} typeDescription={typeDescription} allDrinksOfType={allDrinksOfType} />
           ) : (
             <></>
           )}

@@ -9,7 +9,7 @@ import { TypesFilter, TypesGroup } from "./filters/types";
 import Abv from "./filters/abv";
 import Price from "./filters/price";
 
-import NameAbvCostLine from "./nameAbvCostLine";
+import NameAbvCostLine from "../shared/nameAbvCostLine";
 import ShowAllDrinks from "./showAllDrinks";
 
 import { origins, types } from "../statics";
